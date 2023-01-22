@@ -12,7 +12,7 @@ export default function Header({ active }: Props) {
       <div class="flex items-center flex-1">
         <LemonIcon />
         <div class="text-2xl  ml-1 font-bold">
-          Fresh
+          Adeir
         </div>
       </div>
       <ul class="flex items-center gap-6">

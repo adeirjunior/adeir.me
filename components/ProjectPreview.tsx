@@ -1,6 +1,18 @@
+// deno-lint-ignore-file no-explicit-any
 import IconChevronRight from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/chevron-right.tsx";
 
-export default function MoviePreview() {
+type Props = {
+  title?: string,
+  overview?: any,
+  releaseDate?: string,
+  poster?: {
+    asset: {
+      _ref: string
+    }
+  }
+}
+
+export default function ProjectPreview({ title, overview, releaseDate, poster }: Props) {
   return (
     <div
       class="w-full flex px-8 h-96 justify-center items-center flex-col gap-8 bg-cover bg-center bg-no-repeat bg-gray-100 rounded-xl text-white"

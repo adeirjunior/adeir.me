@@ -1,7 +1,7 @@
 export const navMenu = [
     { name: "Home", href: "/" },
-    { name: "Components", href: "/components" },
-    { name: "Docs", href: "/docs" },
+    { name: "Projects", href: "/projects" },
+    { name: "Contact", href: "/contact" },
 ];
 
 export const footerMenu = [
