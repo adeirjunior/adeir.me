@@ -1,12 +1,10 @@
-import { Head } from "$fresh/runtime.ts";
-import Counter from "../islands/Counter.tsx";
+import Layout from "../components/Layout.tsx";
+import MoviePreview from "../components/MoviePreview.tsx";
 
 export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>Fresh App</title>
-      </Head>
+
+  return <>
+    <Layout>
       <div class="p-4 mx-auto max-w-screen-md">
         <img
           src="/logo.svg"
@@ -17,8 +15,8 @@ export default function Home() {
           Welcome to `fresh`. Try updating this message in the ./routes/index.tsx
           file, and refresh.
         </p>
-        <Counter start={3} />
+        <MoviePreview />
       </div>
-    </>
-  );
+    </Layout>
+  </>
 }
