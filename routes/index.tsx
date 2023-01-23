@@ -46,7 +46,6 @@ export default function Home() {
                   <span class="animate-ping absolute right-0 top-0 w-3 h-3  rounded-full bg-gradient-to-r from-orange -400 to-orange-700 "></span>
                 </button>
               </a>
-              <img class="cursor-pointer " src="/Assets/facebook.svg" alt="" />
               <IconBrandFigma />
               <IconBrandGithub />
               <IconBrandTwitter />
