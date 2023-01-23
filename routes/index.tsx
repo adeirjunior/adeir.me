@@ -18,7 +18,7 @@ export default function Home() {
   return <>
     <Layout>
         <div class="grid place-content-center">
-          <h1 class="text-center">Hello World!</h1>
+          <h1 class="text-center text-2xl font-semibold">Hello World!</h1>
         </div>
     </Layout>
   </>

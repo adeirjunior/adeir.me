@@ -8,7 +8,7 @@ i18next
 
     .init({
 
-        debug: process.env,
+        debug: Deno.env,
 
         fallbackLng: 'en',
 
@@ -20,7 +20,7 @@ i18next
 
                 translation: {
 
-                    welcome: 'hello world'
+                    welcome: 'Hello World'
 
                 }
 
@@ -30,7 +30,7 @@ i18next
 
                 translation: {
 
-                    welcome: 'olá mundo'
+                    welcome: 'Olá Mundo'
 
                 }
 

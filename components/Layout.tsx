@@ -11,7 +11,7 @@ export default function Layout({ children }: Props) {
     return <>
         <HeadTag />
         <Header active="true"/>
-        <main class="min-h-screen">
+        <main class="min-h-screen py-10">
             {children}
         </main>
         <Footer />

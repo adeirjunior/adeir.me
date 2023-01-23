@@ -51,6 +51,7 @@ export default function Footer({ children }: Props) {
         <a
           href="https://github.com/adeirjunior"
           class="inline-block hover:text-black"
+          target="github"
         >
           <BrandGithub />
         </a>

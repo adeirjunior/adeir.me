@@ -1,12 +1,12 @@
 import Layout from "../components/Layout.tsx";
-import Input from "../components/Input.tsx"
+import Form from "../components/Form.tsx";
 
 export default function Contact() {
 
   return <>
     <Layout>
         <div class="grid place-content-center">
-          <Input />
+          <Form />
         </div>
     </Layout>
   </>

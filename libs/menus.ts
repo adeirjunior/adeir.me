@@ -6,20 +6,19 @@ export const navMenu = [
 
 export const footerMenu = [
     {
-      title: "Documentation",
+      title: "Menu",
       children: [
-        { name: "Getting Started", href: "#" },
-        { name: "Guide", href: "#" },
-        { name: "API", href: "#" },
-        { name: "Showcase", href: "#" },
-        { name: "Pricing", href: "#" },
+        { name: "Home", href: "/" },
+        { name: "Projects", href: "projects" },
+        { name: "Contact", href: "contact" },
+        { name: "Blog", href: "#" },
       ],
     },
     {
-      title: "Community",
+      title: "Social Media",
       children: [
-        { name: "Forum", href: "#" },
-        { name: "Discord", href: "#" },
+        { name: "Linkedin", href: "https://www.linkedin.com/in/adeir-junior" },
+        { name: "Twitter", href: "https://twitter.com/adeir_j" },
       ],
     },
 ];
