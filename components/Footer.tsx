@@ -44,12 +44,12 @@ export default function Footer({ children }: Props) {
 
       <div class="text-gray-500 space-y-2">
         <div class="text-xs">
-          Copyright © {year} DenoLand<br />
+          Copyright © {year} Adeir<br />
           All right reserved.
         </div>
 
         <a
-          href="https://github.com/denoland/fresh"
+          href="https://github.com/adeirjunior"
           class="inline-block hover:text-black"
         >
           <BrandGithub />
