@@ -56,7 +56,7 @@ export default function Form() {
                         Message
                     </label>
                     <Textarea 
-                    placeholder="Write an article..." 
+                    placeholder="Type your message..." 
                     id="editor"
                     required
                     />
