@@ -11,38 +11,53 @@ export default function Footer({ children }: Props) {
   const year = new Date().getFullYear()
 
   return (
-    <div class="bg-white flex flex-col md:flex-row w-full gap-8 md:gap-16 px-8 py-8 text-sm">
+    <div class="flex flex-col md:flex-row w-full gap-8 md:gap-16 px-8 py-8 text-sm">
       <div class="flex-1">
-        <div class="flex items-center gap-1">
+        <div class="flex items-center gap-1 dark:text-white">
           <LemonIcon class="inline-block" />
           <div class="font-bold text-2xl">
             Adeir
           </div>
         </div>
-        <div class="text-gray-500">
+        <div class="text-gray-500 dark:text-gray-200">
           Fullstack Programmer
         </div>
       </div>
 
       {menus.map((item) => (
         <div class="mb-4" key={item.title}>
-          <div class="font-bold">{item.title}</div>
+          <div class="font-bold dark:text-white">{item.title}</div>
           <ul class="mt-2">
-            {item.children.map((child) => (
-              <li class="mt-2" key={child.name}>
-                <a
-                  class="text-gray-500 hover:text-gray-700"
-                  href={child.href}
-                >
-                  {child.name}
-                </a>
-              </li>
-            ))}
+            {item.children.map((child) => {
+              if(child.name === "Blog") {
+                return (
+                  <li class="mt-2" key={child.name}>
+                    <a
+                      class="text-gray-500 hover:text-gray-700 dark:text-gray-200 dark:hover:text-gray-400"
+                      href={child.href}
+                      target={child.name}
+                    >
+                      {child.name}
+                    </a>
+                  </li>
+                )
+              }
+              return (
+                <li class="mt-2" key={child.name}>
+                  <a
+                    class="text-gray-500 hover:text-gray-700 dark:text-gray-200 dark:hover:text-gray-400"
+                    href={child.href}
+                  >
+                    {child.name}
+                  </a>
+                </li>
+              )
+              })}
           </ul>
         </div>
       ))}
 
-      <div class="text-gray-500 space-y-2">
+      <div class="text-gray-500 space-y-2 dark:text-gray-400">
         <div class="text-xs">
           Copyright © {year} Adeir<br />
           All right reserved.
@@ -50,7 +65,7 @@ export default function Footer({ children }: Props) {
 
         <a
           href="https://github.com/adeirjunior"
-          class="inline-block hover:text-black"
+          class="inline-block hover:text-black dark:hover:text-gray-200"
           target="github"
         >
           <BrandGithub />

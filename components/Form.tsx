@@ -9,7 +9,7 @@ export default function Form() {
                 <div class="mb-5">
                     <label
                     for="name"
-                    class="mb-3 block text-base font-medium text-[#07074D]"
+                    class="mb-3 block text-base font-medium text-[#07074D] dark:text-gray-200"
                     >
                     Full Name
                     </label>
@@ -23,7 +23,7 @@ export default function Form() {
                 <div class="mb-5">
                     <label
                     for="email"
-                    class="mb-3 block text-base font-medium text-[#07074D]"
+                    class="mb-3 block text-base font-medium text-[#07074D] dark:text-gray-200"
                     >
                     Email Address
                     </label>
@@ -37,7 +37,7 @@ export default function Form() {
                 <div class="mb-5">
                     <label
                     for="subject"
-                    class="mb-3 block text-base font-medium text-[#07074D]"
+                    class="mb-3 block text-base font-medium text-[#07074D] dark:text-gray-200"
                     >
                     Subject
                     </label>
@@ -51,7 +51,7 @@ export default function Form() {
                 <div class="mb-5">
                     <label
                     for="message"
-                    class="mb-3 block text-base font-medium text-[#07074D]"
+                    class="mb-3 block text-base font-medium text-[#07074D] dark:text-gray-200"
                     >
                         Message
                     </label>
@@ -64,7 +64,7 @@ export default function Form() {
 
                 <div>
                     <button
-                    class="hover:shadow-form rounded-md bg-gray-700 py-3 px-8 text-base font-semibold text-white outline-none"
+                    class="hover:shadow-form rounded-md focus:outline-none mt-4 bg-gray-700 dark:bg-gray-800 py-3 px-8 text-base font-semibold text-white outline-none"
                     >
                     Submit
                     </button>

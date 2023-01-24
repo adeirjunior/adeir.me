@@ -11,7 +11,7 @@ export const footerMenu = [
         { name: "Home", href: "/" },
         { name: "Projects", href: "projects" },
         { name: "Contact", href: "contact" },
-        { name: "Blog", href: "#" },
+        { name: "Blog", href: "https://assuntos.dev" },
       ],
     },
     {
