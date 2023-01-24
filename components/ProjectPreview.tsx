@@ -22,7 +22,7 @@ export default function ProjectPreview({ title, description, github, view, pictu
         </p>
       </div>
 
-      <div>
+      <div class="text-xs sm:text-sm lg:text-base">
         <a
           href={github}
           class="block mt-4 text-blue-500 cursor-pointer inline-flex items-center group text-blue-800 bg-white px-8 py-2 rounded-md hover:bg-blue-50 font-bold"
