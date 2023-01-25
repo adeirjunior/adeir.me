@@ -8,7 +8,7 @@ export default function Hero3() {
         <div class="mt-16 grid border divide-x divide-y rounded-xl overflow-hidden sm:grid-cols-2 lg:divide-y-0 lg:grid-cols-3 xl:grid-cols-4">
             <div class="relative group bg-white dark:bg-gray-700 transition hover:z-[1] hover:shadow-2xl">
                 <div class="relative p-8 space-y-8">
-                    <img src="https://tailus.io/sources/blocks/stacked/preview/images/avatars/burger.png" class="w-10" width="512" height="512" alt="burger illustration" />
+                    <img src="/burger.webp" class="w-10" width="512" height="512" alt="burger illustration" />
                     
                     <div class="space-y-2">
                         <h5 class="text-xl text-gray-800 dark:text-gray-200 font-medium transition group-hover:text-yellow-600">First feature</h5>
@@ -22,7 +22,7 @@ export default function Hero3() {
             </div>
             <div class="relative group bg-white dark:bg-gray-700 transition hover:z-[1] hover:shadow-2xl">
                 <div class="relative p-8 space-y-8">
-                    <img src="https://tailus.io/sources/blocks/stacked/preview/images/avatars/trowel.png" class="w-10" width="512" height="512" alt="burger illustration" />
+                    <img src="/trowel.webp" class="w-10" width="512" height="512" alt="burger illustration" />
                     
                     <div class="space-y-2">
                         <h5 class="text-xl text-gray-800 dark:text-gray-200 font-medium transition group-hover:text-yellow-600">Second feature</h5>
@@ -36,7 +36,7 @@ export default function Hero3() {
             </div>
             <div class="relative group bg-white dark:bg-gray-700 transition hover:z-[1] hover:shadow-2xl">
                 <div class="relative p-8 space-y-8">
-                    <img src="https://tailus.io/sources/blocks/stacked/preview/images/avatars/package-delivery.png" class="w-10" width="512" height="512" alt="burger illustration" />
+                    <img src="/package-delivery.webp" class="w-10" width="512" height="512" alt="burger illustration" />
                     
                     <div class="space-y-2">
                         <h5 class="text-xl text-gray-800 dark:text-gray-200 font-medium transition group-hover:text-yellow-600">Third feature</h5>
@@ -50,7 +50,7 @@ export default function Hero3() {
             </div>
             <div class="relative group bg-gray-100 transition hover:z-[1] hover:shadow-2xl lg:hidden xl:block">
                 <div class="relative p-8 space-y-8 dark:bg-gray-700 border-dashed transition duration-300 group-hover:bg-gray-100 group-hover:scale-90">
-                    <img src="https://tailus.io/sources/blocks/stacked/preview/images/avatars/metal.png" class="w-10" width="512" height="512" alt="burger illustration" />
+                    <img src="/metal.webp" class="w-10" width="512" height="512" alt="burger illustration" />
                     
                     <div class="space-y-2">
                         <h5 class="text-xl text-gray-800 dark:text-gray-200 font-medium transition group-hover:text-yellow-600">More features</h5>

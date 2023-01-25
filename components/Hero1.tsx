@@ -5,7 +5,7 @@ import IconBrandGithub from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/bran
 
 export default function Hero1() {
   return (
-    <div class="relative flex items-start justify-center mt-10 sm:pt-0 mb-10">
+    <div class="relative flex items-start justify-center sm:pt-0 mb-10">
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center md:gap-20">
           <div class="content">
             <div class="flex items-center gap-3">
@@ -21,7 +21,7 @@ export default function Hero1() {
             </p>
             <p class="mt-5 md:text-md dark:text-white">
               I'm creative developer based in Brazil, and I'm very passionate and
-              dedicated to my <br class="hidden md:block" /> work. Your Satisfaction is my success
+              dedicated to my <br class="hidden md:block" /> work. Your Satisfaction is my success.
             </p>
             <div class="flex gap-4 my-10 items-center dark:text-white">
               <a href="contact">

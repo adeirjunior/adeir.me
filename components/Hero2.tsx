@@ -7,7 +7,7 @@ export default function Hero2() {
         <div class="w-full lg:text-right lg:w-1/2 flex justify-start lg:items-end flex-col">
             <div class="lg:max-w-lg">
                 <h1 class="text-3xl font-bold tracking-wide text-gray-800 dark:text-white lg:text-5xl">
-                    Easiest way to create your website
+                    Extremally Fast sites
                 </h1>
                 
                 <div class="mt-8 space-y-5 lg:float-right">
