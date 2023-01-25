@@ -2,16 +2,16 @@ export default function Hero3() {
   return (
     <div class="container mx-auto space-y-8 text-gray-500 mt-14">
         <div>
-            <span class="text-gray-600 text-lg font-semibold dark:text-gray-400">Main features</span>
-            <h2 class="mt-4 text-2xl text-gray-900 font-bold md:text-4xl dark:text-gray-200">A technology-first approach to payments <br class="lg:block" hidden /> and finance</h2>
+            <span class="text-gray-600 text-lg font-semibold dark:text-gray-400">Skills</span>
+            <h2 class="mt-4 text-2xl text-gray-900 font-bold md:text-4xl dark:text-gray-200">I Have Experience at Some <br class="lg:block" hidden /> Languages</h2>
         </div>
         <div class="mt-16 grid border divide-x divide-y rounded-xl overflow-hidden sm:grid-cols-2 lg:divide-y-0 lg:grid-cols-3 xl:grid-cols-4">
             <div class="relative group bg-white dark:bg-gray-700 transition hover:z-[1] hover:shadow-2xl">
                 <div class="relative p-8 space-y-8">
-                    <img src="/burger.webp" class="w-10" width="512" height="512" alt="burger illustration" />
+                    <img src="/rust-logo-blk.svg" class="w-10" width="50" height="50" alt="burger illustration" />
                     
                     <div class="space-y-2">
-                        <h5 class="text-xl text-gray-800 dark:text-gray-200 font-medium transition group-hover:text-yellow-600">First feature</h5>
+                        <h5 class="text-xl text-gray-800 dark:text-gray-200 font-medium transition group-hover:text-yellow-600">Rust</h5>
                         <p class="text-sm text-gray-600 dark:text-gray-400">Neque Dolor, fugiat non cum doloribus aperiam voluptates nostrum.</p>
                     </div>
                     <a href="#" class="flex justify-between items-center dark:text-gray-200 group-hover:text-yellow-600">
@@ -22,10 +22,10 @@ export default function Hero3() {
             </div>
             <div class="relative group bg-white dark:bg-gray-700 transition hover:z-[1] hover:shadow-2xl">
                 <div class="relative p-8 space-y-8">
-                    <img src="/trowel.webp" class="w-10" width="512" height="512" alt="burger illustration" />
+                    <img src="/Kotlin_Icon.svg" class="w-10" width="50" height="50" alt="burger illustration" />
                     
                     <div class="space-y-2">
-                        <h5 class="text-xl text-gray-800 dark:text-gray-200 font-medium transition group-hover:text-yellow-600">Second feature</h5>
+                        <h5 class="text-xl text-gray-800 dark:text-gray-200 font-medium transition group-hover:text-yellow-600">Kotlin</h5>
                         <p class="text-sm text-gray-600 dark:text-gray-400">Neque Dolor, fugiat non cum doloribus aperiam voluptates nostrum.</p>
                     </div>
                     <a href="#" class="flex justify-between items-center dark:text-gray-200 group-hover:text-yellow-600">
@@ -36,10 +36,10 @@ export default function Hero3() {
             </div>
             <div class="relative group bg-white dark:bg-gray-700 transition hover:z-[1] hover:shadow-2xl">
                 <div class="relative p-8 space-y-8">
-                    <img src="/package-delivery.webp" class="w-10" width="512" height="512" alt="burger illustration" />
+                    <img src="/Typescript_logo_2020.svg" class="w-10" width="50" height="50" alt="burger illustration" />
                     
                     <div class="space-y-2">
-                        <h5 class="text-xl text-gray-800 dark:text-gray-200 font-medium transition group-hover:text-yellow-600">Third feature</h5>
+                        <h5 class="text-xl text-gray-800 dark:text-gray-200 font-medium transition group-hover:text-yellow-600">Typescript</h5>
                         <p class="text-sm text-gray-600 dark:text-gray-400">Neque Dolor, fugiat non cum doloribus aperiam voluptates nostrum.</p>
                     </div>
                     <a href="#" class="flex justify-between items-center dark:text-gray-200 group-hover:text-yellow-600">
@@ -50,7 +50,7 @@ export default function Hero3() {
             </div>
             <div class="relative group bg-gray-100 transition hover:z-[1] hover:shadow-2xl lg:hidden xl:block">
                 <div class="relative p-8 space-y-8 dark:bg-gray-700 border-dashed transition duration-300 group-hover:bg-gray-100 group-hover:scale-90">
-                    <img src="/metal.webp" class="w-10" width="512" height="512" alt="burger illustration" />
+                    <img src="/metal.webp" class="w-10" width="50" height="50" alt="burger illustration" />
                     
                     <div class="space-y-2">
                         <h5 class="text-xl text-gray-800 dark:text-gray-200 font-medium transition group-hover:text-yellow-600">More features</h5>
