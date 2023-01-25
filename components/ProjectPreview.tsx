@@ -16,8 +16,8 @@ export default function ProjectPreview({ title, description, github, view, pictu
       style={`background-image:linear-gradient(rgba(0, 0, 40, 0.9),rgba(0, 0, 40, 0.95)), url('${picture}');`}
     >
       <div class="space-y-4 text-center">
-        <h1 class="text-4xl inline-block font-bold">{title}</h1>
-        <p class="text-xl max-w-lg text-blue-100">
+        <h1 class="text-2xl lg:text-4xl inline-block font-bold">{title}</h1>
+        <p class="text-base md:text-xl max-w-lg text-blue-100">
           {description}
         </p>
       </div>
