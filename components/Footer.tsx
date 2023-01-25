@@ -1,7 +1,6 @@
 import { ComponentChildren } from "preact";
 import { footerMenu as menus } from "../libs/menus.ts";
 import LemonIcon from "https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/lemon-2.tsx";
-import BrandGithub from "https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/brand-github.tsx";
 type Props = {
   children?: ComponentChildren;
 };
@@ -62,14 +61,6 @@ export default function Footer({ children }: Props) {
           Copyright © {year} Adeir<br />
           All right reserved.
         </div>
-
-        <a
-          href="https://github.com/adeirjunior"
-          class="inline-block hover:text-black dark:hover:text-gray-200"
-          target="github"
-        >
-          <BrandGithub />
-        </a>
       </div>
     </div>
   );
