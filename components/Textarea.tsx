@@ -9,7 +9,7 @@ export default function Textarea(props: JSX.HTMLAttributes<HTMLTextAreaElement>)
             <textarea 
             {...props} 
             rows={8} 
-            class="block outline-none px-0 w-full min-h-[25px] max-h-80 text-sm text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400" 
+            class="block outline-none font-medium px-0 w-full min-h-[25px] max-h-80 text-base text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400" 
             ></textarea>
         </div>
     </div>
