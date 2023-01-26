@@ -15,15 +15,23 @@ export default function Hero2() {
                 <div class="mt-8 space-y-5 lg:float-right">
                     <p class="flex items-center lg:flex-row-reverse -mx-2 text-gray-700 dark:text-gray-200">
                         <CheckIcon />
-                        <span class="mx-2">Clean and Simple Layout</span>
+                        <span class="mx-2">PWA</span>
                     </p>
                     <p class="flex items-center lg:flex-row-reverse -mx-2 text-gray-700 dark:text-gray-200">
                         <CheckIcon />
-                        <span class="mx-2">Just Copy Paste Codeing</span>
+                        <span class="mx-2">Android</span>
                     </p>
                     <p class="flex items-center lg:flex-row-reverse -mx-2 text-gray-700 dark:text-gray-200">
                         <CheckIcon />
-                        <span class="mx-2">Easy to Use</span>
+                        <span class="mx-2">Web</span>
+                    </p>
+                    <p class="flex items-center lg:flex-row-reverse -mx-2 text-gray-700 dark:text-gray-200">
+                        <CheckIcon />
+                        <span class="mx-2">Desktop</span>
+                    </p>
+                    <p class="flex items-center lg:flex-row-reverse -mx-2 text-gray-700 dark:text-gray-200">
+                        <CheckIcon />
+                        <span class="mx-2">Games</span>
                     </p>
                 </div>
             </div>
