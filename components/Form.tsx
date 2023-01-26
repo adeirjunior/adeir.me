@@ -3,9 +3,9 @@ import Textarea from "./Textarea.tsx";
 
 export default function Form() {
     return <>
-        <div class="flex items-center justify-center p-12">
+        <div class="flex items-center justify-center p-12 w-80 sm:w-96">
             <div class="mx-auto w-full max-w-[550px]">
-                <form action="https://formbold.com/s/FORM_ID" method="POST">
+                <form action={`https://formbold.com/s/3nQj1`} method="POST">
                 <div class="mb-5">
                     <label
                     for="name"
@@ -58,6 +58,7 @@ export default function Form() {
                     <Textarea 
                     placeholder="Type your message..." 
                     id="editor"
+                    name="message"
                     required
                     />
                 </div>
