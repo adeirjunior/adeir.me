@@ -31,7 +31,7 @@ export default function Hero2() {
                     </p>
                     <p class="flex items-center lg:flex-row-reverse -mx-2 text-gray-700 dark:text-gray-200">
                         <CheckIcon />
-                        <span class="mx-2">Games</span>
+                        <span class="mx-2">3D</span>
                     </p>
                 </div>
             </div>
