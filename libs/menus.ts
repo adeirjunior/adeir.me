@@ -19,7 +19,7 @@ export const footerMenu = [
       children: [
         { name: "Linkedin", href: "https://www.linkedin.com/in/adeir-junior" },
         { name: "Twitter", href: "https://twitter.com/adeir_j" },
-        { name: "Discord", href: "https://github.com/adeirjunior" }
+        { name: "Github", href: "https://github.com/adeirjunior" }
       ],
     },
 ];
