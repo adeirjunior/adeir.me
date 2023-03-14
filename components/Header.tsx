@@ -1,4 +1,4 @@
-import LemonIcon from "https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/lemon-2.tsx";
+import Logo from "./icons/logo.tsx";
 import { navMenu as menus } from "../libs/menus.ts";
 
 type Props = {
@@ -10,7 +10,7 @@ export default function Header({ active }: Props) {
   return (
     <div class=" w-full py-6 px-8 flex flex-col flex-row gap-4 ">
       <div class="flex items-center flex-1 dark:text-white">
-        <LemonIcon />
+        <Logo />
         <div class="text-2xl  ml-1 font-bold">
           Adeir
         </div>

@@ -1,6 +1,6 @@
 import { ComponentChildren } from "preact";
 import { footerMenu as menus } from "../libs/menus.ts";
-import LemonIcon from "https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/lemon-2.tsx";
+import Logo from "./icons/logo.tsx";
 type Props = {
   children?: ComponentChildren;
 };
@@ -13,7 +13,7 @@ export default function Footer({ children }: Props) {
     <div class="flex flex-col md:flex-row w-full gap-8 md:gap-16 px-8 py-8 text-sm">
       <div class="flex-1">
         <div class="flex items-center gap-1 dark:text-white">
-          <LemonIcon class="inline-block" />
+          <Logo className="inline-block" />
           <div class="font-bold text-2xl">
             Adeir
           </div>
