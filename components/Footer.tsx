@@ -1,6 +1,6 @@
 import { ComponentChildren } from "preact";
 import { footerMenu as menus } from "../libs/menus.ts";
-import Logo from "./icons/logo.tsx";
+import Logo from "./icons/Logo.tsx";
 type Props = {
   children?: ComponentChildren;
 };

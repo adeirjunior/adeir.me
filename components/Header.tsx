@@ -1,4 +1,4 @@
-import Logo from "./icons/logo.tsx";
+import Logo from "./icons/Logo.tsx";
 import { navMenu as menus } from "../libs/menus.ts";
 
 type Props = {
