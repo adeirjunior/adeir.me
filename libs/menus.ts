@@ -26,13 +26,6 @@ export const footerMenu = [
 
 export const projects = [
   {
-      title: "KidTask",
-      description: "A kotlin native android app where you can give tasks for your kids.",
-      github: "https://github.com/adeirjunior/kidtask",
-      view: "https://kidtask.app/",
-      picture: "/projects/kidtask.png",
-  },
-  {
       title: "Anticara",
       description: "A Dropshipping store made with Nextjs.",
       github: "https://github.com/adeirjunior/anticara",

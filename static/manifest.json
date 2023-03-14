@@ -1,0 +1,41 @@
+{
+    "short_name": "Adeir",
+    "name": "Adeir.me",
+    "icons": [
+        {
+            "src": "/favicon/android-chrome-512x512.png",
+            "type": "image/svg+xml",
+            "sizes": "512x512"
+        },
+        {
+            "src": "/favicon/android-chrome-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/favicon/favicon-32x32.png",
+            "type": "image/png",
+            "sizes": "32x32"
+        },
+        {
+            "src": "/favicon/favicon-16x16.png",
+            "type": "image/png",
+            "sizes": "16x16"
+        },
+        {
+            "src": "/favicon/favicon.icon",
+            "sizes": "72x72 96x96 128x128 256x256"
+        },
+        {
+            "src": "/favicon/favicon.svg",
+            "sizes": "any"
+        }
+    ],
+    "id": "/?source=pwa",
+    "start_url": "/?source=pwa",
+    "background_color": "#3367D6",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#3367D6",
+    "description": "My little portifolio"
+}
