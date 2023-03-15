@@ -6,7 +6,7 @@ import MultiL from "../libs/multilingual.ts";
 
 export default function Hero1() {
 
-  const multi = new MultiL('languages.json')
+  const multi = new MultiL('libs/languages.json')
 
   multi.setLanguage(window.navigator.language)
 

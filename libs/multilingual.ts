@@ -1,4 +1,4 @@
-import { basename, resolve, toFileUrl } from "https://deno.land/std@0.179.0/path/mod.ts";
+import { resolve, toFileUrl } from "https://deno.land/std@0.179.0/path/mod.ts";
 
 interface languages {
     pt: languageKeys
@@ -17,11 +17,9 @@ export default class MultiL {
 
     constructor(value: string) {
 
-        const decoder = new TextDecoder("utf-8");
+        const path = toFileUrl(resolve(value))
 
-        const path = toFileUrl(resolve(`libs/${basename(value)}`))
-
-        const file = decoder.decode(Deno.readFileSync(path)); 
+        const file = Deno.readTextFileSync(path);
 
         this.#avaliableL = JSON.parse(file);
     }
