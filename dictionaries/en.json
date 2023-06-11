@@ -1,0 +1,42 @@
+{
+  "idioms": {
+    "en": "English",
+    "pt": "Portuguese"
+  },
+  "nav": {
+    "home": "Home",
+    "project": "Projects",
+    "contact": "Contact"
+  },
+  "hero1": {
+    "subTitle": "Fullstack Developer",
+    "title": "I'm Adeir Junior\nDesigner And Developer",
+    "description": "I'm creative developer based in Brazil, and I'm very passionate and dedicated to my work. Your satisfaction is my success.",
+    "contact": "Contact Me"
+  },
+  "footer": {
+    "siteSubTitle": "Fullstack Developer",
+    "menu": [
+      {
+        "title": "Menu",
+        "children": [
+          { "name": "Home", "href": "/" },
+          { "name": "Projects", "href": "projects" },
+          { "name": "Contact", "href": "contact" },
+          { "name": "Blog", "href": "https://assuntos.dev" }
+        ]
+      },
+      {
+        "title": "Social Media",
+        "children": [
+          {
+            "name": "Linkedin",
+            "href": "https://www.linkedin.com/in/adeirjunior"
+          },
+          { "name": "Twitter", "href": "https://twitter.com/adeir_j" },
+          { "name": "Github", "href": "https://github.com/adeirjunior" }
+        ]
+      }
+    ]
+  }
+}

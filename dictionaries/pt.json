@@ -1,0 +1,38 @@
+{
+    "idioms": {
+        "en": "Inglês",
+        "pt": "Portugues"
+    },
+    "nav": {
+        "home": "Home",
+        "project": "Projetos",
+        "contact": "Contato"
+    },
+    "hero1": {
+      "subTitle": "Desenvolvedor Fullstack",
+      "title": "Eu sou Adeir Junior\nDesigner e Desenvolvedor",
+      "description": "Sou um programador criativo, apaixonado e dedicado ao meu trabalho. Sua satisfação é o meu sucesso.",
+      "contact": "Fale Comigo"
+    },
+    "footer": {
+      "siteSubTitle": "Desenvolvedor Fullstack",
+      "menu":[
+        {
+          "title": "Menu",
+          "children": [
+            { "name": "Home", "href": "/" },
+            { "name": "Projetos", "href": "projects" },
+            { "name": "Contato", "href": "contact" },
+            { "name": "Blog", "href": "https://assuntos.dev" }
+          ]
+        },
+        {
+          "title": "Redes Sociais",
+          "children": [
+            { "name": "Linkedin", "href": "https://www.linkedin.com/in/adeirjunior" },
+            { "name": "Twitter", "href": "https://twitter.com/adeir_j" },
+            { "name": "Github", "href": "https://github.com/adeirjunior" }
+          ]
+        }
+      ]}
+}
