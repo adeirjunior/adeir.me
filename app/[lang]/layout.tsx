@@ -1,8 +1,9 @@
 import "@/globals.css";
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 import Footer from "@/src/components/footer";
 import Header from "@/src/components/header";
 import { Metadata } from "next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Adeir",
@@ -21,12 +22,25 @@ export default function RootLayout({
   params: any;
 }) {
   return (
-    <html lang="en">
+    <html lang={lang}>
       <body>
         <Header lang={lang} />
         <main className="min-h-screen py-10 px-8">{children}</main>
         <Footer lang={lang} />
         <Analytics />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-5T797C28TQ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-5T797C28TQ');
+        `}
+        </Script>
       </body>
     </html>
   );
