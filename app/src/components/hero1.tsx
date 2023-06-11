@@ -42,7 +42,7 @@ export default async function Hero1({ lang }: any) {
           </div>
         </div>
         <div className="relative sm:mt-0 mt-10 sm:px-0">
-          <div className="absolute top-0 left-0 z-10">
+          <div className="2xl:absolute top-0 left-0 z-10">
             <Image
             className="rounded-full w-[600px] select-none"
             width="1000"
@@ -53,7 +53,7 @@ export default async function Hero1({ lang }: any) {
           />
           </div>
           
-          <CircleWavy />
+          <CircleWavy className="hidden 2xl:block"/>
         </div>
       </div>
     </div>
