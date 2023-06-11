@@ -8,9 +8,9 @@ function Header({lang}: any) {
       <div className=" flex flex-wrap items-center justify-between mx-auto py-4 px-8">
         <div className="flex items-center">
           <Logo />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+          <h1 className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             Adeir
-          </span>
+          </h1>
         </div>
         <LanguageSwitch lang={lang} />
         <Nav lang={lang} />
