@@ -1,4 +1,5 @@
 import "@/globals.css";
+import { Analytics } from '@vercel/analytics/react';
 import Footer from "@/src/components/footer";
 import Header from "@/src/components/header";
 import { Metadata } from "next";
@@ -25,6 +26,7 @@ export default function RootLayout({
         <Header lang={lang} />
         <main className="min-h-screen py-10 px-8">{children}</main>
         <Footer lang={lang} />
+        <Analytics />
       </body>
     </html>
   );
