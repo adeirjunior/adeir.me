@@ -18,9 +18,9 @@ export default function Hero3() {
           <div className="relative p-8 space-y-8">
             <FaRust />
             <div className="space-y-2">
-              <h5 className="text-xl text-gray-800 dark:text-gray-200 font-medium transition group-hover:text-yellow-600">
+              <h3 className="text-xl text-gray-800 dark:text-gray-200 font-medium transition group-hover:text-yellow-600">
                 Rust
-              </h5>
+              </h3>
             </div>
           </div>
         </div>
@@ -28,9 +28,9 @@ export default function Hero3() {
           <div className="relative p-8 space-y-8">
             <SiKotlin className="w-10" />
             <div className="space-y-2">
-              <h5 className="text-xl text-gray-800 dark:text-gray-200 font-medium transition group-hover:text-yellow-600">
+              <h3 className="text-xl text-gray-800 dark:text-gray-200 font-medium transition group-hover:text-yellow-600">
                 Kotlin
-              </h5>
+              </h3>
             </div>
           </div>
         </div>
@@ -38,9 +38,9 @@ export default function Hero3() {
           <div className="relative p-8 space-y-8">
             <SiTypescript className="w-10" />
             <div className="space-y-2">
-              <h5 className="text-xl text-gray-800 dark:text-gray-200 font-medium transition group-hover:text-yellow-600">
+              <h3 className="text-xl text-gray-800 dark:text-gray-200 font-medium transition group-hover:text-yellow-600">
                 Typescript
-              </h5>
+              </h3>
             </div>
           </div>
         </div>
@@ -48,9 +48,9 @@ export default function Hero3() {
           <div className="relative p-8 space-y-8 h-full bg-white dark:bg-gray-700 border-dashed transition duration-300 group-hover:bg-gray-100 dark:group-hover:bg-gray-900 group-hover:scale-90">
             <FiGithub className="w-10 dark:text-white" />
             <div className="space-y-2">
-              <h5 className="text-xl text-gray-800 dark:text-gray-200 font-medium transition group-hover:text-yellow-600">
+              <h3 className="text-xl text-gray-800 dark:text-gray-200 font-medium transition group-hover:text-yellow-600">
                 More skills
-              </h5>
+              </h3>
               <p className="text-sm text-gray-600 dark:text-gray-200">
                 I have other skills as well, these can be seen on my github.
               </p>
