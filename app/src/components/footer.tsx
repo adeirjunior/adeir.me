@@ -20,14 +20,14 @@ export default async function Footer({ lang }: any) {
 
       {dict.footer.menu.map((item) => (
         <div className="mb-4" key={item.title}>
-          <div className="font-bold dark:text-white">{item.title}</div>
-          <ul className="mt-2">
+          <div className="font-bold dark:text-white text-base">{item.title}</div>
+          <ul className="mt-2 text-base">
             {item.children.map((child) => {
               if (child.name === "Blog") {
                 return (
                   <li className="mt-2" key={child.name}>
                     <Link
-                      className="text-gray-500 hover:text-gray-700 dark:text-gray-200 dark:hover:text-gray-400 p-1"
+                      className="text-gray-500 hover:text-gray-700 dark:text-gray-200 dark:hover:text-gray-400"
                       href={child.href}
                       target={child.name}
                     >
@@ -39,7 +39,7 @@ export default async function Footer({ lang }: any) {
               return (
                 <li className="mt-2" key={child.name}>
                   <a
-                    className="text-gray-500 hover:text-gray-700 dark:text-gray-200 dark:hover:text-gray-400 p-1"
+                    className="text-gray-500 hover:text-gray-700 dark:text-gray-200 dark:hover:text-gray-400"
                     href={child.href}
                     target={child.name}
                   >
