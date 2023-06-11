@@ -1,10 +1,10 @@
-import Link from 'next/link'
-import { getDictionary } from '@/src/lib/dictionaries'
-import Logo from './icons/logo'
+import Link from "next/link";
+import { getDictionary } from "@/src/lib/dictionaries";
+import Logo from "./icons/logo";
 
 export default async function Footer({ lang }: any) {
-  const year = new Date().getFullYear()
-  const dict = await getDictionary(lang)
+  const year = new Date().getFullYear();
+  const dict = await getDictionary(lang);
 
   return (
     <div className="flex flex-col md:flex-row w-full gap-8 md:gap-16 px-8 py-8 text-sm">
@@ -13,7 +13,9 @@ export default async function Footer({ lang }: any) {
           <Logo />
           <div className="font-bold text-2xl">Adeir</div>
         </div>
-        <div className="text-gray-500 dark:text-gray-200">{dict.footer.siteSubTitle}</div>
+        <div className="text-gray-500 dark:text-gray-200">
+          {dict.footer.siteSubTitle}
+        </div>
       </div>
 
       {dict.footer.menu.map((item) => (
@@ -21,30 +23,30 @@ export default async function Footer({ lang }: any) {
           <div className="font-bold dark:text-white">{item.title}</div>
           <ul className="mt-2">
             {item.children.map((child) => {
-              if (child.name === 'Blog') {
+              if (child.name === "Blog") {
                 return (
                   <li className="mt-2" key={child.name}>
                     <Link
-                      className="text-gray-500 hover:text-gray-700 dark:text-gray-200 dark:hover:text-gray-400"
+                      className="text-gray-500 hover:text-gray-700 dark:text-gray-200 dark:hover:text-gray-400 p-1"
                       href={child.href}
                       target={child.name}
                     >
                       {child.name}
                     </Link>
                   </li>
-                )
+                );
               }
               return (
                 <li className="mt-2" key={child.name}>
                   <a
-                    className="text-gray-500 hover:text-gray-700 dark:text-gray-200 dark:hover:text-gray-400"
+                    className="text-gray-500 hover:text-gray-700 dark:text-gray-200 dark:hover:text-gray-400 p-1"
                     href={child.href}
                     target={child.name}
                   >
                     {child.name}
                   </a>
                 </li>
-              )
+              );
             })}
           </ul>
         </div>
@@ -58,5 +60,5 @@ export default async function Footer({ lang }: any) {
         </div>
       </div>
     </div>
-  )
+  );
 }
