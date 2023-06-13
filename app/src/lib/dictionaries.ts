@@ -1,7 +1,7 @@
 import "server-only";
 
 import { Locale } from "../../../i18n-config";
-import { Dictionary } from "./types";
+import { Dictionary } from "../types";
 
 type Dictionaries = {
   en: () => Promise<Dictionary>;
