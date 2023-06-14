@@ -21,7 +21,7 @@ export default async function Hero1({ lang }: any) {
             </span>
             <hr className="w-10 bg-orange-500 border " />
           </div>
-          <p className="text-[40px] lg:text-[45px] xl:text-[55px] font-bold leading-tight mt-5 sm:mt-0 dark:text-white">
+          <p className="text-2xl sm:text-[40px] lg:text-[45px] xl:text-[55px] font-bold leading-tight mt-5 sm:mt-0 dark:text-white">
             {title}
           </p>
           <p className="mt-5 md:text-md dark:text-white">{description}</p>

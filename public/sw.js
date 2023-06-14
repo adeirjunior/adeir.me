@@ -67,7 +67,7 @@ if (!self.define) {
     });
   };
 }
-define(['./workbox-8f0e986c'], (function (workbox) { 'use strict';
+define(['./workbox-9cbe89da'], (function (workbox) { 'use strict';
 
   importScripts();
   self.skipWaiting();
@@ -81,10 +81,10 @@ define(['./workbox-8f0e986c'], (function (workbox) { 'use strict';
         event,
         state
       }) => {
-        if (response && response.type === 'opaqueredirect') {
+        if (response && response.type === "opaqueredirect") {
           return new Response(response.body, {
             status: 200,
-            statusText: 'OK',
+            statusText: "OK",
             headers: response.headers
           });
         }
