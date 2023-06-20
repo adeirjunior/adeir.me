@@ -29,8 +29,8 @@
         {
           "title": "Redes Sociais",
           "children": [
-            { "name": "Linkedin", "href": "https://www.linkedin.com/in/adeirjunior" },
-            { "name": "Twitter", "href": "https://twitter.com/adeir_j" },
+            { "name": "Linkedin", "href": "https://linkedin.com/in/adeirjunior" },
+            { "name": "Twitter", "href": "https://twitter.com/adeirju" },
             { "name": "Github", "href": "https://github.com/adeirjunior" }
           ]
         }
