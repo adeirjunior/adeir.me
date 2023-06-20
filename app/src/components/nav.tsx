@@ -21,7 +21,7 @@ async function Nav({lang}: any) {
         </li>
         <li>
           <Link
-            href="projects"
+            href="/projects"
             className={`block py-2 pl-3 pr-4 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 rounded md:bg-transparent md:hover:text-yellow-600 md:hover:bg-transparent md:dark:hover:bg-transparent md:p-0 `}
           >
             {dict.nav.project}

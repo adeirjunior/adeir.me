@@ -39,6 +39,7 @@ export interface Nav {
 }
 
 export interface Project {
+  _id: string;
   name: string;
   image: string;
   tags: Tag[];
