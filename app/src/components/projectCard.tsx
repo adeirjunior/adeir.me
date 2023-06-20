@@ -13,7 +13,7 @@ type Prop = {
 function ProjectCard({ project }: Prop) {
   const { name, descriptionPT, image, host, repository } = project;
   return (
-    <div className="lg:w-1/3">
+    <div className="w-full">
       <div className="h-full bg-gray-200 dark:bg-gray-800 bg-opacity-40 px-8 pt-8 pb-24 rounded-lg overflow-hidden text-center relative">
         <Image alt="" className="mb-4 rounded" src={`${urlFor(image)}`} height={400} width={700}/>
         <h2 className="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">
