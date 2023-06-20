@@ -34,6 +34,8 @@ export function middleware(request: { nextUrl: { pathname: any }; url: string | 
  
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
+    if (pathname === '/sitemap.xml' || pathname === '/robots.xml' || pathname === '/sw.js') return
+
     const locale = getLocale(request)
  
     // e.g. incoming request is /products
