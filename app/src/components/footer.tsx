@@ -25,7 +25,7 @@ export default async function Footer({ lang }: any) {
             {item.children.map((child) => {
               return (
                 <li className="mt-2" key={child.name}>
-                  {item.title === 'Menu' & child.name !== 'Blog' ? (
+                  {item.title === 'Menu' && child.name !== 'Blog' ? (
                     <Link
                     className="text-gray-500 hover:text-gray-700 dark:text-gray-200 dark:hover:text-gray-400"
                     href={child.href}
