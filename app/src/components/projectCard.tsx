@@ -10,8 +10,8 @@ type Prop = {
   project: Project;
 };
 
-function ProjectCard({ project }: Prop) {
-  const { name, descriptionPT, image, host, repository, _id } = project;
+async function ProjectCard({ project }: Prop) {
+  const { name, descriptionPT, descriptionEN, image, host, repository, _id } = project;
   return (
     <div className="w-full">
       <div className="h-full bg-gray-200 dark:bg-gray-800 bg-opacity-40 px-8 pt-8 pb-24 rounded-lg overflow-hidden text-center relative">
@@ -28,9 +28,8 @@ function ProjectCard({ project }: Prop) {
         <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-600 dark:text-white mb-3">
           {name}
         </h1>
-        <p className="leading-relaxed mb-3">{descriptionPT}</p>
+        <p className="leading-relaxed mb-3"></p>
         <Link href={`projects/${_id}`} className="text-blue-400 inline-flex items-center">
-          Learn More
           <BiRightArrowAlt className="w-4 h-4 ml-2" />
         </Link>
         <div className="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">

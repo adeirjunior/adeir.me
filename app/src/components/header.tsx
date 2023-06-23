@@ -2,7 +2,7 @@ import Logo from "./icons/logo";
 import LanguageSwitch from "./languageSwitch";
 import Nav from "./nav";
 
-function Header({lang}: any) {
+function Header() {
   return (
     <nav className="border-gray-200">
       <div className=" flex flex-wrap items-center justify-between mx-auto py-4 px-8">
@@ -12,8 +12,8 @@ function Header({lang}: any) {
             Adeir
           </h1>
         </div>
-        <LanguageSwitch lang={lang} />
-        <Nav lang={lang} />
+        <LanguageSwitch />
+        <Nav />
       </div>
     </nav>
   );

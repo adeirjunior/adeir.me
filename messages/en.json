@@ -1,12 +1,15 @@
 {
-  "idioms": {
-    "en": "English",
-    "pt": "Portuguese"
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, pt {Portuguese} en {English} other {Unknown}}"
   },
-  "nav": {
+  "Nav": {
     "home": "Home",
     "project": "Projects",
     "contact": "Contact"
+  },
+  "projectCard": {
+    "more": "Learn More"
   },
   "hero1": {
     "subTitle": "Fullstack Developer",

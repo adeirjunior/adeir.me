@@ -1,7 +1,8 @@
 import { Metadata } from "next";
-import ProjectGrid from "@/src/components/projectGrid";
 import loadProjects from "@/src/lib/load-projects";
 import { Project } from "@/src/types";
+import ProjectCard from "@/src/components/projectCard";
+import { useLocale } from "next-intl";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -11,7 +12,17 @@ export const metadata: Metadata = {
 
 async function page() {
   const projects: Project[] = await loadProjects();
-  return <ProjectGrid projects={projects} />;
+  return (
+    <section className="text-gray-400 dark:bg-gray-900 body-font">
+      <div className="mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <ProjectCard project={project} key={index} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default page;

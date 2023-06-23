@@ -1,6 +1,7 @@
 export interface Dictionary {
   idioms: Idioms;
   nav: Nav;
+  projectCard: ProjectCard
   hero1: Hero1;
   footer: Footer;
 }
@@ -36,6 +37,10 @@ export interface Nav {
   home: string;
   project: string;
   contact: string;
+}
+
+export interface ProjectCard {
+  more: string;
 }
 
 export interface Project {
