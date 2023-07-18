@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 import loadProjects from "@/src/lib/load-projects";
-import { Project } from "@/src/types";
+import { GithubRepository, Project } from "@/src/types";
+import { notFound } from "next/navigation";
 import ProjectCard from "@/src/components/projectCard";
-import { useLocale } from "next-intl";
+import loadGithubRepositories from "@/src/lib/load-github-repositories";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -11,7 +12,10 @@ export const metadata: Metadata = {
 };
 
 async function page() {
-  const projects: Project[] = await loadProjects();
+  const projects: GithubRepository[] | undefined = await loadGithubRepositories();
+  if (typeof projects === 'undefined') {
+    notFound()
+  }
   return (
     <section className="text-gray-400 dark:bg-gray-900 body-font">
       <div className="mx-auto">

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "./icons/logo";
+import { LangProp } from "../types";
 
 
 export default async function Footer() {

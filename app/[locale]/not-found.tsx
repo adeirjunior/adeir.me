@@ -1,9 +1,15 @@
-'use client';
+import {useTranslations} from 'next-intl';
+import PageLayout from '@/src/components/PageLayout';
 
-import Error from 'next/error';
+// Note that `app/[locale]/[...rest]/page.tsx`
+// is necessary for this page to render.
 
-export default function NotFound() {
+export default function NotFoundPage() {
+  const t = useTranslations('NotFoundPage');
+
   return (
-    <Error statusCode={404} />
+    <PageLayout title={t('title')}>
+      <p className="max-w-[460px]">{t('description')}</p>
+    </PageLayout>
   );
 }

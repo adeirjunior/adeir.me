@@ -1,7 +1,7 @@
 export interface Dictionary {
   idioms: Idioms;
   nav: Nav;
-  projectCard: ProjectCard
+  projectCard: ProjectCard;
   hero1: Hero1;
   footer: Footer;
 }
@@ -52,10 +52,25 @@ export interface Project {
   descriptionPT: string;
   bodyEN: string[];
   bodyPT: string[];
-  repository: string
-  host: string
+  repository: string;
+  host: string;
 }
 
 interface Tag {
   title: string;
 }
+
+export type LangProp = {
+  lang: string;
+};
+
+export type GithubRepository = {
+  name: string;
+  url: string;
+  homepage: string;
+  description: string;
+  mainLanguage: string;
+  languages: string[];
+  readme: string;
+  repository: string;
+};

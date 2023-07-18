@@ -1,11 +1,11 @@
 'use client'
 
 import Link from 'next/link';
-import {useLocale, useTranslations} from 'next-intl';
+import {useTranslations} from 'next-intl';
 
 async function Nav() {
 
-  const t = useTranslations('Nav');
+  const t = useTranslations('nav');
 
   return (
     <div
@@ -16,6 +16,7 @@ async function Nav() {
           <Link
             href="/"
             className={`block py-2 pl-3 pr-4 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 rounded md:bg-transparent md:hover:text-yellow-600 md:hover:bg-transparent md:dark:hover:bg-transparent md:p-0 `}
+            aria-current="page"
           >
             {t('home')}
           </Link>

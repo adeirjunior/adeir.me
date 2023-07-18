@@ -4,10 +4,9 @@ import Footer from "@/src/components/footer";
 import Header from "@/src/components/header";
 import { Metadata } from "next";
 import Script from "next/script";
-import { useLocale } from "next-intl";
 import { notFound } from "next/navigation";
-import { createTranslator, NextIntlClientProvider } from "next-intl";
 import { ReactNode } from "react";
+import { useLocale, createTranslator, NextIntlClientProvider } from "next-intl";
 
 export const metadata: Metadata = {
   title: "Adeir",
@@ -18,11 +17,6 @@ export const metadata: Metadata = {
     "Welcome to my Next.js portfolio! Here, I demonstrate my programming expertise and showcase a variety of projects I have worked on. As a skilled developer, I utilize the power of Next.js, a popular React framework, to create this dynamic and interactive web application.",
 };
 
-type Props = {
-  children: ReactNode;
-  params: { locale: string };
-};
-
 async function getMessages(locale: string) {
   try {
     return (await import(`../../messages/${locale}.json`)).default;
@@ -31,14 +25,18 @@ async function getMessages(locale: string) {
   }
 }
 
-export async function generateStaticParams() {
-  return ["en", "de"].map((locale) => ({ locale }));
-}
+type Props = {
+  children: ReactNode;
+  params: { locale: string };
+};
 
-export default async function RootLayout({
-  children,
-  params: { locale },
-}: Props) {
+export default async function RootLayout({ children, params }: Props) {
+  const locale = useLocale();
+
+  if (params.locale !== locale) {
+    notFound();
+  }
+
   const messages = await getMessages(locale);
 
   return (
