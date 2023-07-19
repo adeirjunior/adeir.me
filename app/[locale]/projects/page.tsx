@@ -1,6 +1,7 @@
+'use client'
+
 import { Metadata } from "next";
-import loadProjects from "@/src/lib/load-projects";
-import { GithubRepository, Project } from "@/src/types";
+import { GithubRepository } from "@/src/types";
 import { notFound } from "next/navigation";
 import ProjectCard from "@/src/components/projectCard";
 import loadGithubRepositories from "@/src/lib/load-github-repositories";
@@ -12,9 +13,11 @@ export const metadata: Metadata = {
 };
 
 async function page() {
-  const projects: GithubRepository[] | undefined = await loadGithubRepositories();
-  if (typeof projects === 'undefined') {
-    notFound()
+  const projects: GithubRepository[] | undefined =
+    await loadGithubRepositories();
+
+  if (typeof projects === "undefined") {
+    notFound();
   }
   return (
     <section className="text-gray-400 dark:bg-gray-900 body-font">
