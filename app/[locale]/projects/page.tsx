@@ -1,5 +1,3 @@
-'use client'
-
 import { Metadata } from "next";
 import { GithubRepository } from "@/src/types";
 import { notFound } from "next/navigation";

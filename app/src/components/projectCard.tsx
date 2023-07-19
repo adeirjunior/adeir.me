@@ -1,3 +1,4 @@
+"use client";
 
 import { GithubRepository, Project } from "../types";
 import { CgWebsite } from "react-icons/cg";
@@ -10,7 +11,16 @@ type Prop = {
 };
 
 async function ProjectCard({ project }: Prop) {
-  const { name, description, homepage, languages, mainLanguage, readme, url, repository } = project;
+  const {
+    name,
+    description,
+    homepage,
+    languages,
+    mainLanguage,
+    readme,
+    url,
+    repository,
+  } = project;
   return (
     <div className="w-full">
       <div className="h-full bg-gray-200 dark:bg-gray-800 bg-opacity-40 px-8 pt-8 pb-24 rounded-lg overflow-hidden text-center relative">
@@ -21,7 +31,10 @@ async function ProjectCard({ project }: Prop) {
           {name}
         </h1>
         <p className="leading-relaxed mb-3"></p>
-        <Link href={`projects/1`} className="text-blue-400 inline-flex items-center">
+        <Link
+          href={`projects/1`}
+          className="text-blue-400 inline-flex items-center"
+        >
           more
           <BiRightArrowAlt className="w-4 h-4 ml-2" />
         </Link>
