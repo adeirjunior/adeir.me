@@ -38,7 +38,9 @@ async function ProjectCard({ project }: Prop) {
           more
           <BiRightArrowAlt className="w-4 h-4 ml-2" />
         </Link>
+        {description && (<div><p>{description}</p></div>)}
         <div className="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
+        {homepage && (
           <a
             title="a"
             href={homepage}
@@ -47,6 +49,7 @@ async function ProjectCard({ project }: Prop) {
           >
             <CgWebsite className="group-hover:scale-110 w-[20px] h-[20px] sm:w-[24px] sm:h-[24px]" />
           </a>
+        )}
           <a
             title="a"
             href={repository}
