@@ -15,7 +15,7 @@ async function page() {
     await loadGithubRepositories();
 
   if (typeof projects === "undefined") {
-    notFound();
+    return null
   }
   return (
     <section className="text-gray-400 dark:bg-gray-900 body-font">
