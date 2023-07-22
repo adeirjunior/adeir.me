@@ -32,7 +32,7 @@ async function ProjectCard({ project }: Prop) {
         </h1>
         <p className="leading-relaxed mb-3"></p>
         <Link
-          href={`projects/1`}
+          href={`projects/${name}`}
           className="text-blue-400 inline-flex items-center"
         >
           more
