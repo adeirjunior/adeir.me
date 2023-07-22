@@ -11,12 +11,8 @@ export const metadata: Metadata = {
 };
 
 async function page() {
-  const projects: GithubRepository[] | undefined =
-    await loadGithubRepositories();
+  const projects: GithubRepository[] = await loadGithubRepositories();
 
-  if (typeof projects === "undefined") {
-    notFound()
-  }
   return (
     <section className="text-gray-400 dark:bg-gray-900 body-font">
       <div className="mx-auto">

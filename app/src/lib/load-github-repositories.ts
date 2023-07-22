@@ -51,7 +51,7 @@ const fetchRepositoryLanguages = async (repository: any) => {
   }
 };
 
-const loadGithubRepositories = async () => {
+const loadGithubRepositories: () => Promise<GithubRepository[]> = async () => {
   try {
     const repositories = await fetchRepositories();
     const repositoriesWithReadme: GithubRepository[] = await Promise.all(
@@ -71,9 +71,10 @@ const loadGithubRepositories = async () => {
       })
     );
 
-    return repositoriesWithReadme
+    return repositoriesWithReadme;
   } catch (error) {
     console.error(error);
+    return [];
   }
 };
 
