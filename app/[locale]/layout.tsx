@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   viewport: { width: "device-width", initialScale: 1 },
   keywords: ["nextjs", "portfolio"],
   authors: [{ name: "Adeir do Bom Fim Junior", url: "https://adeir.me" }],
+  manifest: "/manifest.json",
+  themeColor: "#111827",
+  applicationName: "Adeir.me",
   description:
     "Welcome to my Next.js portfolio! Here, I demonstrate my programming expertise and showcase a variety of projects I have worked on. As a skilled developer, I utilize the power of Next.js, a popular React framework, to create this dynamic and interactive web application.",
 };
