@@ -1,27 +1,17 @@
-import { MetadataRoute } from "next";
-import loadGithubRepositories from "./src/lib/load-github-repositories";
-import { GithubRepository } from "./src/types";
+import { getBlogPosts } from 'app/blog/utils'
 
-type SitemapItem = {
-  url: string;
-  lastModified: Date;
-}
+export const baseUrl = 'https://portfolio-blog-starter.vercel.app'
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-
-  const URL = "https://www.adeir.me/"
-
-  const response = await loadGithubRepositories();
-
-  const repositories: SitemapItem[] = response.map(({name}: GithubRepository) => ({
-    url: `${URL}projects/${name}`,
-    lastModified: new Date()
+export default async function sitemap() {
+  let blogs = getBlogPosts().map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.metadata.publishedAt,
   }))
 
-  const paths: SitemapItem[] = ["projects", "", "contact"].map((path: string) => ({
-    url: `${URL}${path}`,
-    lastModified: new Date()
+  let routes = ['', '/blog'].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date().toISOString().split('T')[0],
   }))
 
-  return [...paths, ...repositories];
+  return [...routes, ...blogs]
 }

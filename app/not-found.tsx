@@ -1,16 +1,10 @@
-'use client';
-
-import Error from 'next/error';
-
-// This page renders when a route is requested that doesn't match the
-// middleware and therefore doesn't have a locale associated with it.
-
 export default function NotFound() {
   return (
-    <html lang="en">
-      <body>
-        <Error statusCode={404} />
-      </body>
-    </html>
-  );
+    <section>
+      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
+        404 - Page Not Found
+      </h1>
+      <p className="mb-4">The page you are looking for does not exist.</p>
+    </section>
+  )
 }
