@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { CustomMDX } from 'app/(components)/mdx'
 import { baseUrl } from 'app/sitemap'
-import { formatDate, getBlogPosts } from 'app/utils'
+import { formatDate, getBlogPosts } from 'app/(utils)/utils'
 
 type Props = {
   params: {

@@ -40,7 +40,8 @@ export default function Page() {
   return (
     <div>
       <h1 className="font-semibold text-2xl mb-8 tracking-tighter">My Links</h1>
-      {Object.entries(links).map(([name, { href }]) => {
+      <div>
+        {Object.entries(links).map(([name, { href }]) => {
         return (
           <a
             key={name}
@@ -52,6 +53,7 @@ export default function Page() {
           </a>
         );
       })}
+      </div>
     </div>
   );
 }
