@@ -54,8 +54,14 @@ const fetchRepositoryLanguages = async (repository: any) => {
 const loadGithubRepositories: () => Promise<GithubRepository[]> = async () => {
   try {
     const repositories = await fetchRepositories();
+
+    // Filter out the repository with the name 'adeirjunior'
+    const filteredRepositories = repositories.filter(
+      (repo: any) => repo.name !== "adeirjunior"
+    );
+
     const repositoriesWithReadme: GithubRepository[] = await Promise.all(
-      repositories.map(async (repo: any) => {
+      filteredRepositories.map(async (repo: any) => {
         const readmeContent = await fetchRepositoryReadme(repo);
         const languagesResponse = await fetchRepositoryLanguages(repo);
         return {
@@ -77,5 +83,6 @@ const loadGithubRepositories: () => Promise<GithubRepository[]> = async () => {
     return [];
   }
 };
+
 
 export default loadGithubRepositories;
