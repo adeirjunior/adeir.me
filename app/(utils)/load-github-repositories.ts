@@ -1,3 +1,5 @@
+'use server'
+
 import { Octokit } from "octokit";
 import { GithubRepository } from "./types";
 
@@ -18,7 +20,9 @@ const fetchRepositories = async () => {
   return response.data;
 };
 
-export const fetchRepositoryReadme = async (name: string) => {
+export const fetchRepositoryReadme = async (
+  name: string
+): Promise<string | null> => {
   try {
     const response = await octokit.request(
       `GET /repos/{owner}/${name}/contents/README.md`,
@@ -30,8 +34,14 @@ export const fetchRepositoryReadme = async (name: string) => {
       }
     );
 
-    return atob(response.data.content);
+    // Decode the base64 content
+    const content = atob(response.data.content);
+
+    // Return the content as markdown
+    return content;
   } catch (error) {
+    // Log the error or handle it as needed
+    console.error(error);
     return null; // Return null or any other default value if needed
   }
 };

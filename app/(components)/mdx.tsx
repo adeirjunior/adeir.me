@@ -2,7 +2,7 @@ import Link, { LinkProps } from "next/link";
 import Image, { ImageProps } from "next/image";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import { highlight } from "sugar-high";
-import { createElement, Key } from "react";
+import { createElement, HTMLAttributes, Key, ReactNode } from "react";
 import React from "react";
 import { Url } from "next/dist/shared/lib/router/router";
 
@@ -82,19 +82,24 @@ function slugify(str: string) {
 }
 
 function createHeading(level: number) {
-  const Heading = ({ children }: { children: string }) => {
-    let slug = slugify(children);
+  const Heading = ({
+    children,
+    ...props
+  }: { children?: ReactNode } & HTMLAttributes<HTMLHeadingElement>) => {
+    const childText = typeof children === "string" ? children : ""; // Extract text for slug if children is a string
+    const slug = slugify(childText);
+
     return createElement(
       `h${level}`,
-      { id: slug },
+      { id: slug, ...props }, // Pass props to ensure compatibility
       [
         createElement("a", {
           href: `#${slug}`,
           key: `link-${slug}`,
           className: "anchor",
         }),
-      ],
-      children
+        children, // Render children, even if it's undefined it will be safely handled
+      ]
     );
   };
 
@@ -117,9 +122,5 @@ export const components = {
 };
 
 export function CustomMDX(props: MDXRemoteProps ) {
-  return (
-    <MDXRemote
-      {...props}
-    />
-  );
+  return <MDXRemote {...props} components={components} />;
 }
