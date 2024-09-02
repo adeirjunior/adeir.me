@@ -119,6 +119,7 @@ export const components = {
   a: CustomLink as any, // Explicitly cast to any to bypass type mismatch
   code: Code,
   Table,
+  
 };
 
 export function CustomMDX(props: MDXRemoteProps) {

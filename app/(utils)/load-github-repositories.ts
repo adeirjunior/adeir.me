@@ -20,6 +20,16 @@ const fetchRepositories = async () => {
   return response.data;
 };
 
+const fetchRepository = async (name: string) => {
+  const response = await octokit.request(`GET /repos/{owner}/${name}`, {
+    owner,
+    headers: {
+      "X-GitHub-Api-Version": "2022-11-28",
+    }
+  });
+  return response.data;
+};
+
 export const fetchRepositoryReadme = async (
   repo: string
 ): Promise<string | null> => {
@@ -100,5 +110,33 @@ const loadGithubRepositories: () => Promise<GithubRepository[]> = async () => {
     return [];
   }
 };
+
+export const loadGithubRepository: (
+  repositoryName: string
+) => Promise<GithubRepository> = async (repositoryName) => {
+  try {
+    const repo = await fetchRepository(repositoryName);
+
+    const readmeContent = await fetchRepositoryReadme(repo.name); // Corrigido para usar repo.name
+    const languagesResponse = await fetchRepositoryLanguages(repo.name); // Corrigido para usar repo.name
+
+    const repositoryWithReadme: GithubRepository = {
+      name: repo.name,
+      url: repo.html_url,
+      homepage: repo.homepage,
+      description: repo.description,
+      mainLanguage: repo.language,
+      languages: languagesResponse!,
+      readme: readmeContent!,
+      repository: repo.svn_url,
+    };
+
+    return repositoryWithReadme;
+  } catch (error) {
+    console.error(error);
+    throw error; // Melhor lançar o erro para que o chamador possa tratá-lo
+  }
+};
+
 
 export default loadGithubRepositories;
