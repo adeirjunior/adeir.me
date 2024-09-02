@@ -1,4 +1,4 @@
-'use server'
+"use server";
 
 import { Octokit } from "octokit";
 import { GithubRepository } from "./types";
@@ -21,13 +21,14 @@ const fetchRepositories = async () => {
 };
 
 export const fetchRepositoryReadme = async (
-  name: string
+  repo: string
 ): Promise<string | null> => {
   try {
     const response = await octokit.request(
-      `GET /repos/{owner}/${name}/contents/README.md`,
+      `GET /repos/{owner}/{repo}/contents/README.md`,
       {
         owner,
+        repo,
         headers: {
           "X-GitHub-Api-Version": "2022-11-28",
         },
@@ -35,29 +36,35 @@ export const fetchRepositoryReadme = async (
     );
 
     // Decode the base64 content
-    const content = atob(response.data.content);
+    const content = Buffer.from(response.data.content, "base64").toString(
+      "utf-8"
+    );
 
     // Return the content as markdown
     return content;
   } catch (error) {
-    // Log the error or handle it as needed
     console.error(error);
-    return null; // Return null or any other default value if needed
+    return null;
   }
 };
 
-const fetchRepositoryLanguages = async (repository: any) => {
+const fetchRepositoryLanguages = async (repo: string) => {
+  
   try {
-    const response = await octokit.request(`GET ${repository.languages_url}`, {
-      owner,
-      headers: {
-        "X-GitHub-Api-Version": "2022-11-28",
-      },
-    });
+    const response = await octokit.request(
+      `GET /repos/{owner}/{repo}/languages`,
+      {
+        owner,
+        repo,
+        headers: {
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+      }
+    );
 
     return Object.keys(response.data);
   } catch (error) {
-    return null; // Return null or any other default value if needed
+    return null;
   }
 };
 
@@ -72,8 +79,8 @@ const loadGithubRepositories: () => Promise<GithubRepository[]> = async () => {
 
     const repositoriesWithReadme: GithubRepository[] = await Promise.all(
       filteredRepositories.map(async (repo: any) => {
-        const readmeContent = await fetchRepositoryReadme(repo);
-        const languagesResponse = await fetchRepositoryLanguages(repo);
+        const readmeContent = await fetchRepositoryReadme(repo.name); // Passando o nome do repositório
+        const languagesResponse = await fetchRepositoryLanguages(repo.name); // Passando o nome do repositório
         return {
           name: repo.name,
           url: repo.html_url,
@@ -93,6 +100,5 @@ const loadGithubRepositories: () => Promise<GithubRepository[]> = async () => {
     return [];
   }
 };
-
 
 export default loadGithubRepositories;
