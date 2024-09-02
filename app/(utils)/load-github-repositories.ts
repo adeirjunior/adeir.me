@@ -3,8 +3,8 @@
 import { Octokit } from "octokit";
 import { GithubRepository } from "./types";
 
-const owner = process.env.GITHUB_OWNER;
-const auth = process.env.GITHUB_AUTH;
+const owner = process.env.GITHUB_OWNER as string;
+const auth = process.env.GITHUB_AUTH as string;
 
 const octokit = new Octokit({
   auth,

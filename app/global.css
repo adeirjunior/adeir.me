@@ -1,4 +1,6 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 ::selection {
   background-color: #47a3f3;
@@ -126,8 +128,7 @@ pre::-webkit-scrollbar {
 }
 
 pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
 }
 
 /* Remove Safari input shadow on mobile */
@@ -140,11 +141,7 @@ input[type='email'] {
 
 table {
   display: block;
-  max-width: -moz-fit-content;
+  max-width: fit-content;
   overflow-x: auto;
   white-space: nowrap;
-}
-
-.title {
-  text-wrap: balance;
 }

@@ -62,7 +62,7 @@ function CustomLink({
 }
 
 function RoundedImage(props: ImageProps) {
-  return <Image className="rounded-lg" {...props} />;
+  return <Image {...props} alt={props.alt} className="rounded-lg" />;
 }
 
 function Code({ children, ...props }: any) {
@@ -121,6 +121,6 @@ export const components = {
   Table,
 };
 
-export function CustomMDX(props: MDXRemoteProps ) {
+export function CustomMDX(props: MDXRemoteProps) {
   return <MDXRemote {...props} components={components} />;
 }
