@@ -15,7 +15,7 @@ export async function GET() {
       (post) =>
         `<item>
           <title>${post.title}</title>
-          <link>${baseUrl}/blog/${post.slug}</link>
+          <link>${baseUrl}/blog/${post.slug.current}</link>
           <description>${post.summary || ''}</description>
           <pubDate>${new Date(
             post.publishedAt
