@@ -8,7 +8,7 @@ export const metadata = {
 };
 
 export default async function Page() {
-  const projects: GithubRepository[] = await loadGithubRepositories();
+  //const projects: GithubRepository[] = await loadGithubRepositories();
 
   return (
     <div>
@@ -16,7 +16,7 @@ export default async function Page() {
         My Projects
       </h1>
       <div>
-        {projects.map((project) => (
+        {/*projects.map((project) => (
           <Link
             className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
             href={`projects/${project.name}`}
@@ -24,7 +24,7 @@ export default async function Page() {
           >
             {project.name} {project.name === 'adeir.me' && '(this site)'}
           </Link>
-        ))}
+        ))*/}
       </div>
     </div>
   );
