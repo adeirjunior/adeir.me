@@ -1,5 +1,8 @@
 import fs, { PathLike, PathOrFileDescriptor } from 'fs'
+import { groq } from 'next-sanity'
 import path from 'path'
+import { client } from '@/sanity/lib/client'
+import { Post } from './types'
 
 type Metadata = {
   title: string
@@ -49,8 +52,8 @@ function getMDXData(dir: string) {
   })
 }
 
-export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), 'app', '(paths)', 'blog', 'posts'))
+export async function getBlogPosts(): Promise<Post[]> {
+  return await client.fetch(groq`*[_type == 'post'] `);
 }
 
 export function formatDate(date: string, includeRelative = false) {

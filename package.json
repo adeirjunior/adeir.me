@@ -7,22 +7,28 @@
     "ts-lint": "tsc --noEmit --incremental --watch"
   },
   "dependencies": {
+    "@sanity/icons": "^3.4.0",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.56.0",
     "@tailwindcss/postcss": "4.0.0-alpha.13",
     "@types/node": "20.11.17",
-    "@types/react": "18.2.55",
     "@types/react-dom": "18.2.19",
     "@vercel/analytics": "^1.1.3",
     "@vercel/speed-insights": "^1.0.9",
     "geist": "1.2.2",
-    "next": "canary",
+    "next": "^14.2.7",
     "next-mdx-remote": "^4.4.1",
+    "next-sanity": "^9.4.7",
     "octokit": "^4.0.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sanity": "^3.56.0",
+    "styled-components": "^6.1.13",
     "sugar-high": "^0.6.0",
     "typescript": "5.3.3"
   },
   "devDependencies": {
+    "@types/react": "^18.3.5",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.42",
     "tailwindcss": "^4.0.0-alpha.13"

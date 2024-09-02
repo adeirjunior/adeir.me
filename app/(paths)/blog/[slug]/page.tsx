@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
-import { CustomMDX } from 'app/(components)/mdx'
 import { baseUrl } from 'app/sitemap'
 import { formatDate, getBlogPosts } from 'app/(utils)/utils'
+import { CustomPortableText } from '@/app/(components)/portable-text'
 
 type Props = {
   params: {
@@ -10,15 +10,16 @@ type Props = {
 }
 
 export async function generateStaticParams() {
-  let posts = getBlogPosts()
+  const posts = await getBlogPosts()
 
   return posts.map((post) => ({
-    slug: post.slug,
+    slug: post.slug.current,
   }))
 }
 
-export function generateMetadata({ params }: Props) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+export async function generateMetadata({ params }: Props) {
+  const data = await getBlogPosts()
+  const post = data.find((post) => post.slug.current === params.slug);
   if (!post) {
     return;
   }
@@ -27,11 +28,8 @@ export function generateMetadata({ params }: Props) {
     title,
     publishedAt: publishedTime,
     summary: description,
-    image,
-  } = post.metadata;
-  let ogImage = image
-    ? image
-    : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
+  } = post;
+  const ogImage = `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
@@ -57,8 +55,9 @@ export function generateMetadata({ params }: Props) {
   };
 }
 
-export default function Blog({ params }: Props) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+export default async function Blog({ params }: Props) {
+  const data = await getBlogPosts();
+  const post = data.find((post) => post.slug.current === params.slug);
 
   if (!post) {
     notFound();
@@ -73,13 +72,11 @@ export default function Blog({ params }: Props) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BlogPosting",
-            headline: post.metadata.title,
-            datePublished: post.metadata.publishedAt,
-            dateModified: post.metadata.publishedAt,
-            description: post.metadata.summary,
-            image: post.metadata.image
-              ? `${baseUrl}${post.metadata.image}`
-              : `/og?title=${encodeURIComponent(post.metadata.title)}`,
+            headline: post.title,
+            datePublished: post.publishedAt,
+            dateModified: post.publishedAt,
+            description: post.summary,
+            image: `/og?title=${encodeURIComponent(post.title)}`,
             url: `${baseUrl}/blog/${post.slug}`,
             author: {
               "@type": "Person",
@@ -89,15 +86,15 @@ export default function Blog({ params }: Props) {
         }}
       />
       <h1 className="title font-semibold text-2xl tracking-tighter">
-        {post.metadata.title}
+        {post.title}
       </h1>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm">
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(post.metadata.publishedAt)}
+          {formatDate(post.publishedAt)}
         </p>
       </div>
       <article className="prose">
-        <CustomMDX source={post.content} />
+        <CustomPortableText value={post.body} />
       </article>
     </section>
   );
