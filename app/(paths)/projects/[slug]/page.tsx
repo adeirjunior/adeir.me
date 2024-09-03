@@ -1,7 +1,9 @@
 import { GithubRepository } from "@/app/(utils)/types";
 import { baseUrl } from "@/app/sitemap";
 import { CustomMDX } from "app/(components)/mdx";
-import loadGithubRepositories, { fetchRepositoryReadme, loadGithubRepository } from "app/(utils)/load-github-repositories";
+import loadGithubRepositories, {
+  loadGithubRepository,
+} from "app/(utils)/load-github-repositories";
 import { notFound } from "next/navigation";
 
 type Props = {
@@ -24,7 +26,7 @@ export async function generateMetadata({ params }: Props) {
     return;
   }
 
-  const { name: title, description,  } = repository;
+  const { name: title, description } = repository;
   const ogImage = `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
@@ -53,11 +55,11 @@ export async function generateMetadata({ params }: Props) {
 async function page({ params }: Props) {
   const repository = await loadGithubRepository(params.slug);
 
-  if(!repository) {
-    notFound()
+  if (!repository) {
+    notFound();
   }
 
-  const {name, description, readme} = repository
+  const { name, description, readme } = repository;
 
   return (
     <section>
@@ -83,7 +85,9 @@ async function page({ params }: Props) {
         {params.slug}
       </h1>
 
-      <CustomMDX source={readme} />
+      <article className="prose">
+        <CustomMDX source={readme} />
+      </article>
     </section>
   );
 }

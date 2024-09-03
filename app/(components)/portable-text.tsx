@@ -6,65 +6,27 @@ import React from "react";
 import { Url } from "next/dist/shared/lib/router/router";
 import {
   PortableText,
+  PortableTextMarkComponentProps,
   PortableTextReactComponents,
   PortableTextTypeComponentProps,
 } from "next-sanity";
 import { PostBody } from "../(utils)/types";
 import { urlFor } from "@/sanity/lib/image";
+import { slugify } from "../(utils)/utils";
+import { Code, CustomLink, Table } from "@/mdx-components";
+import { TypedObject } from "sanity";
 
-function Table({ data }: any) {
-  let headers = data.headers.map((header: string, index: Key) => (
-    <th key={index}>{header}</th>
-  ));
-  let rows = data.rows.map((row: string[], index: Key) => (
-    <tr key={index}>
-      {row.map((cell: string, cellIndex: Key) => (
-        <td key={cellIndex}>{cell}</td>
-      ))}
-    </tr>
-  ));
-
-  return (
-    <table>
-      <thead>
-        <tr>{headers}</tr>
-      </thead>
-      <tbody>{rows}</tbody>
-    </table>
-  );
+interface LinkValue extends TypedObject {
+  href: string;
 }
 
-function CustomLink({
-  href,
+function CustomPortableTextLink({
+  value,
   children,
-  ...props
-}: React.AnchorHTMLAttributes<HTMLAnchorElement> & LinkProps) {
-  const hrefString = typeof href === "string" ? href : (href as Url).toString(); // Convert Url to string
+}: PortableTextMarkComponentProps<LinkValue>) {
+  const href = value?.href || "#"; // Fallback to '#' if href is undefined
 
-  if (hrefString.startsWith("/")) {
-    // Internal link
-    return (
-      <Link {...props} href={href as Url}>
-        {children}
-      </Link>
-    );
-  }
-
-  if (hrefString.startsWith("#")) {
-    // Anchor link
-    return (
-      <a {...props} href={hrefString}>
-        {children}
-      </a>
-    );
-  }
-
-  // External link
-  return (
-    <a target="_blank" rel="noopener noreferrer" href={hrefString} {...props}>
-      {children}
-    </a>
-  );
+  return <CustomLink href={href}>{children}</CustomLink>;
 }
 
 function RoundedImage({ value }: PortableTextTypeComponentProps<any>) {
@@ -79,22 +41,6 @@ function RoundedImage({ value }: PortableTextTypeComponentProps<any>) {
       height={300}
     />
   );
-}
-
-function Code({ children, ...props }: any) {
-  const codeHTML = highlight(children);
-  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
-}
-
-function slugify(str: string) {
-  return str
-    .toString()
-    .toLowerCase()
-    .trim() // Remove whitespace from both ends of a string
-    .replace(/\s+/g, "-") // Replace spaces with -
-    .replace(/&/g, "-and-") // Replace & with 'and'
-    .replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
-    .replace(/\-\-+/g, "-"); // Replace multiple - with single -
 }
 
 function createHeading(level: number) {
@@ -124,14 +70,16 @@ function createHeading(level: number) {
 export const components: Partial<PortableTextReactComponents> = {
   types: {
     image: RoundedImage,
-    talbe: Table,
+    table: Table,
     code: Code,
     h1: createHeading(1),
     h2: createHeading(2),
     h3: createHeading(3),
     h4: createHeading(4),
     h5: createHeading(5),
-    h6: createHeading(6),
+  },
+  marks: {
+    link: CustomPortableTextLink, // Use CustomPortableTextLink for link marks
   },
 };
 

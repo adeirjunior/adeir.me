@@ -8,11 +8,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mdx-js/loader": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "@next/mdx": "^14.2.7",
     "@sanity/icons": "^3.4.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.56.0",
     "@tailwindcss/cli": "^4.0.0-alpha.20",
     "@tailwindcss/postcss": "^0.0.0-development.1",
+    "@types/mdx": "^2.0.13",
     "@types/node": "20.11.17",
     "@types/react-dom": "18.2.19",
     "@vercel/analytics": "^1.1.3",
