@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { baseUrl } from 'app/sitemap'
 import { formatDate, getBlogPosts } from 'app/(utils)/utils'
-import { CustomPortableText } from '@/app/(components)/portable-text'
+import { CustomMDX } from '@/app/(components)/mdx'
 
 type Props = {
   params: {
@@ -94,7 +94,7 @@ export default async function Blog({ params }: Props) {
         </p>
       </div>
       <article className="prose">
-        <CustomPortableText value={post.body} />
+        <CustomMDX source={post.body} />
       </article>
     </section>
   );

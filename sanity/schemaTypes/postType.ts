@@ -23,8 +23,9 @@ export const postType = defineType({
       type: "string",
     }),
     defineField({
+      type: "markdown",
+      description: "A Github flavored markdown field with image uploading",
       name: "body",
-      type: "blockContent",
     }),
     defineField({
       name: "publishedAt",
