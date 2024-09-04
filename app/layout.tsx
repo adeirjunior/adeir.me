@@ -11,17 +11,19 @@ import { baseUrl } from './sitemap'
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Adeir Junior',
-    template: '%s | Adeir Junior',
+    default: "Adeir Junior",
+    template: "%s | Adeir Junior",
   },
-  description: 'This is my portfolio.',
+  description: "This is my portfolio.",
   openGraph: {
-    title: 'My Portfolio',
-    description: 'This is my portfolio.',
+    title: "My Website",
+    description:
+      "This is the place for my portfolio, my blog, and my social links.",
     url: baseUrl,
-    siteName: 'Adeir.me',
-    locale: 'en_US',
-    type: 'website',
+    siteName: "adeir.me",
+    locale: "en_US",
+    type: "website",
+    images: "/og",
   },
   robots: {
     index: true,
@@ -29,12 +31,12 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
-}
+};
 
 const cx = (...classes: string[]) => classes.filter(Boolean).join(' ')
 
