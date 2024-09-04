@@ -1,11 +1,28 @@
+import Spotlight, { CustomSpotlightCard } from "@/app/(components)/spotlight-card.tsx"
+
 <article className="prose">
 
-# My Portfolio
+<h1 id="my-portfolio" className="font-semibold !text-2xl !mt-0 !tracking-tighter">
+<a href="#my-portfolio" className="archor"></a>
+My Portfolio
+</h1>
 
-Brazillian Computer Science Student with years of working knowledge on programming. 
+## Bio
+
+Brazillian **Computer Science** Student with years of working knowledge on programming. 
+
+## Main Projects
 
 During these years I have made many personal projects focusing on trying to fix social isolation and making people find new friend groups with common interests that are near them. One example can be found here: [HobbyFriends](https://github.com/adeirjunior/HobbyFriends)
 
 I have also developed a platform which objective is provide a space for politicians and voters interact with each others hoping that it would bring more transparency on the doing of politicians: It can be found here: [E-Gab](https://egab.online)
+
+## Main Languages
+
+<Spotlight className="max-w-sm mt-6 grid gap-6 lg:grid-cols-3 items-start lg:max-w-none group">
+    <CustomSpotlightCard>Rust</CustomSpotlightCard>
+    <CustomSpotlightCard>Typescript</CustomSpotlightCard>
+    <CustomSpotlightCard>Kotlin</CustomSpotlightCard>
+</Spotlight>
 
 </article>

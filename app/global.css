@@ -119,7 +119,7 @@ html {
 
 .prose > :first-child {
   /* Override removing top margin, causing layout shift */
-  margin-top: 1.25em !important;
+  margin-top: 1.25em;
   margin-bottom: 1.25em !important;
 }
 
