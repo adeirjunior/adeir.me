@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props) {
       description,
       type: "article",
       publishedTime,
-      url: `${baseUrl}/blog/${post.slug}`,
+      url: `${baseUrl}/blog/${post.slug.current}`,
       images: [
         {
           url: ogImage,
@@ -77,7 +77,7 @@ export default async function Blog({ params }: Props) {
             dateModified: post.publishedAt,
             description: post.summary,
             image: `/og?title=${encodeURIComponent(post.title)}`,
-            url: `${baseUrl}/blog/${post.slug}`,
+            url: `${baseUrl}/blog/${post.slug.current}`,
             author: {
               "@type": "Person",
               name: "My Portfolio",
