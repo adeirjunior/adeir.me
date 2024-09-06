@@ -34,6 +34,26 @@ const list = {
         href: "https://amzn.to/4dMzDHw",
         image: "https://m.media-amazon.com/images/I/71hjHuIcflL._SL1500_.jpg",
       },
+      {
+        name: "The Art of War",
+        href: "https://amzn.to/3XJqCcV",
+        image: "https://m.media-amazon.com/images/I/71xJdnydklL._SL1000_.jpg",
+      },
+      {
+        name: "The Iliad & the Odyssey",
+        href: "https://amzn.to/4ebhfYG",
+        image: "https://m.media-amazon.com/images/I/810rw5b5WxL._SL1500_.jpg",
+      },
+      {
+        name: "Animal Farm",
+        href: "https://amzn.to/4cRm9sV",
+        image: "https://m.media-amazon.com/images/I/71je3-DsQEL._SL1500_.jpg",
+      },
+      {
+        name: "1984",
+        href: "https://amzn.to/4cUzfWk",
+        image: "https://m.media-amazon.com/images/I/71rpa1-kyvL._SL1500_.jpg",
+      },
     ],
   },
 };
