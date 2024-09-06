@@ -18,7 +18,7 @@ export const metadata = {
 };
 
 const list = {
-  programming: {
+  Programming: {
     books: [
       {
         name: "WebAssembly: The Definitive Guide",
@@ -27,7 +27,7 @@ const list = {
       },
     ],
   },
-  classical: {
+  Classical: {
     books: [
       {
         name: "Crime and Punishment",
@@ -40,45 +40,47 @@ const list = {
 
 export default function Page() {
   return (
-    <section className="prose">
+    <section>
       <h1 className="font-semibold text-2xl mb-8 tracking-tighter">
         Reading List
       </h1>
-      <p>
-        I do a lot of reading, and when I find books that are particularly good,
-        I write them down so I can recommend them to others. This reading list
-        is made up of my current favorite books and are organized by category. I
-        consider these books “must-read” for their category as they will help
-        you learn and grow in your career.
-      </p>
-      <p>
-        Note: This page contains affiliate links. If you click through and
-        purchase a book, I may receive compensation for that purchase.
-      </p>
-      <div>
-        {Object.entries(list).map(([category, { books }]) => (
-          <div key={category}>
-            <h2>{category}</h2>
-            <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-              {books.map((book, index) => (
-                <li key={index}>
-                  <a target="_blank" href={book.href}>
-                    <div>
-                      <Image
-                        width={200}
-                        height={500}
-                        src={book.image}
-                        alt={book.name}
-                      />
+      <div className="prose">
+        <p>
+          I do a lot of reading, and when I find books that are particularly
+          good, I write them down so I can recommend them to others. This
+          reading list is made up of my current favorite books and are organized
+          by category. I consider these books “must-read” for their category as
+          they will help you learn and grow in your career.
+        </p>
+        <p>
+          Note: This page contains affiliate links. If you click through and
+          purchase a book, I may receive compensation for that purchase.
+        </p>
+        <div>
+          {Object.entries(list).map(([category, { books }]) => (
+            <div key={category}>
+              <h2>{category}</h2>
+              <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {books.map((book, index) => (
+                  <li key={index}>
+                    <a target="_blank" href={book.href}>
+                      <div>
+                        <Image
+                          width={200}
+                          height={500}
+                          src={book.image}
+                          alt={book.name}
+                        />
 
-                      <p>{book.name}</p>
-                    </div>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+                        <p>{book.name}</p>
+                      </div>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
