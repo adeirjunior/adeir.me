@@ -1,6 +1,19 @@
+import { baseUrl } from "@/app/sitemap";
+
+const ogImage = `${baseUrl}/og?title=${encodeURIComponent("links")}`;
+
 export const metadata = {
   title: "Links",
   description: "See my links.",
+  openGraph: {
+    title: "All my social links",
+    description: "This is the place for my social links.",
+    url: `${baseUrl}/links`,
+    siteName: "adeir.me",
+    locale: "en_US",
+    type: "website",
+    images: ogImage,
+  },
 };
 
 const links = {
