@@ -51,9 +51,9 @@ const links = {
 
 export default function Page() {
   return (
-    <div>
+    <section>
       <h1 className="font-semibold text-2xl mb-8 tracking-tighter">My Links</h1>
-      <div>
+      <div className="prose">
         {Object.entries(links).map(([name, { href }]) => {
         return (
           <a
@@ -67,6 +67,6 @@ export default function Page() {
         );
       })}
       </div>
-    </div>
+    </section>
   );
 }
