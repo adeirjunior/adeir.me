@@ -1,4 +1,5 @@
 import { GithubRepository } from "@/app/(utils)/types";
+import { sanitizeMDXContent } from "@/app/(utils)/utils";
 import { baseUrl } from "@/app/sitemap";
 import { CustomMDX } from "app/(components)/mdx";
 import loadGithubRepositories, {
@@ -61,6 +62,8 @@ async function page({ params }: Props) {
 
   const { name, description, readme } = repository;
 
+  const sanitizedReadme = sanitizeMDXContent(readme);
+
   return (
     <section>
       <script
@@ -86,7 +89,7 @@ async function page({ params }: Props) {
       </h1>
 
       <article className="prose">
-        <CustomMDX source={readme} />
+        <CustomMDX source={sanitizedReadme} />
       </article>
     </section>
   );

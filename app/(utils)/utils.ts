@@ -38,6 +38,37 @@ function readMDXFile(filePath: string) {
   return parseFrontmatter(rawContent);
 }
 
+export function sanitizeMDXContent(content: string): string {
+  let sanitizedContent = content.replace(/(width|height|src|alt)=([^\s>"'}]+)/g, '$1="$2"');
+  sanitizedContent = sanitizedContent.replace(/<img([^>]+)(?<!\/)>/g, '<img$1/>');
+
+  // Substituir o trecho com a tabela de autores
+  sanitizedContent = sanitizedContent.replace(/\| \[<img.+<\/sub>\]\(.+filipedeschamps.+\)/, `
+    <table>
+      <tr>
+        <td align="center">
+          <a href="https://github.com/filipedeschamps">
+            <img src="https://github.com/filipedeschamps.png?size=115" width="115" />
+            <br />
+            <sub>@filipedeschamps</sub>
+          </a>
+        </td>
+        <td align="center">
+          <a href="https://github.com/lucianopf">
+            <img src="https://github.com/lucianopf.png?size=115" width="115" />
+            <br />
+            <sub>@lucianopf</sub>
+          </a>
+        </td>
+      </tr>
+    </table>
+  `);
+
+  return sanitizedContent;
+}
+
+
+
 function getMDXData(dir: string) {
   let mdxFiles = getMDXFiles(dir)
   return mdxFiles.map((file) => {
