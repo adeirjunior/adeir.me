@@ -84,7 +84,7 @@ const loadGithubRepositories: () => Promise<GithubRepository[]> = async () => {
 
     // Filter out the repository with the name 'adeirjunior'
     const filteredRepositories = repositories.filter(
-      (repo: any) => repo.name !== "adeirjunior"
+      (repo: any) => repo.name !== "adeirjunior" && repo.name !== ".github"
     );
 
     const repositoriesWithReadme: GithubRepository[] = await Promise.all(
