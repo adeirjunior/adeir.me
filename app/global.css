@@ -19,6 +19,12 @@
   --sh-entity: #e25a1c;
 }
 
+@media print {
+  .noprint {
+    visibility: hidden;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --sh-class: #4c97f8;
