@@ -5,8 +5,9 @@ import { CustomMDX } from '@/app/(components)/mdx'
 
 type Props = {
   params: {
-    slug: string
-  }
+    slug: string;
+    lang: 'en' | 'pt'
+  },
 }
 
 export async function generateStaticParams() {
@@ -90,7 +91,7 @@ export default async function Blog({ params }: Props) {
       </h1>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm">
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(post.publishedAt)}
+          {formatDate(post.publishedAt, undefined, params.lang)}
         </p>
       </div>
       <article className="prose">
