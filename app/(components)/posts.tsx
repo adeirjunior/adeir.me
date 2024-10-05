@@ -1,11 +1,11 @@
 import { formatDate, getBlogPosts } from 'app/(utils)/utils'
 import Link from 'next/link'
 
-export async function BlogPosts() {
+export async function BlogPosts({lang}: {lang: 'en' | 'pt'}) {
   const allBlogs = await getBlogPosts()
 
   return (
-    <div>
+    <div className='my-4'>
       {allBlogs
         .sort((a, b) => {
           if (
@@ -23,7 +23,7 @@ export async function BlogPosts() {
           >
             <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
               <p className="text-neutral-600 dark:text-neutral-400 w-[100px] tabular-nums">
-                {formatDate(post.publishedAt, false)}
+                {formatDate(post.publishedAt, false, lang)}
               </p>
               <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
                 {post.title}

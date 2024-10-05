@@ -36,8 +36,10 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "next.config.mjs"
-, "app/(paths)/page.mdx"  ],
+    "next.config.mjs",
+    "app/[lang]/page.tsx",
+    "middleware.ts"
+  ],
   "exclude": [
     "node_modules"
   ]

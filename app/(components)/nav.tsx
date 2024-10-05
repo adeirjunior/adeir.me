@@ -1,26 +1,30 @@
 import Link from 'next/link'
+import { getDictionary } from '../[lang]/dictionaries';
 
-const navItems = {
-  "/": {
-    name: "home",
-  },
-  "/blog": {
-    name: "blog",
-  },
-  "/projects": {
-    name: "projects",
-  },
-  "/reading": {
-    name: "reading",
-  },
-  "/links": {
-    name: "links",
-  },
-};
+export async function Navbar({lang}: {lang: 'en' | 'pt'}) {
 
-export function Navbar() {
+  const t = await getDictionary(lang);
+
+  const navItems = {
+    [`/${lang}`]: {
+      name: t.nav.home,
+    },
+    [`/${lang}/blog`]: {
+      name: t.nav.blog,
+    },
+    [`/${lang}/projects`]: {
+      name: t.nav.projects,
+    },
+    [`/${lang}/reading`]: {
+      name: t.nav.reading,
+    },
+    [`/${lang}/links`]: {
+      name: t.nav.links,
+    },
+  };
+
   return (
-    <aside className="-ml-[8px] mb-16 tracking-tight noprint">
+    <aside className="-ml-[8px] mb-10 tracking-tight noprint">
       <div className="lg:sticky lg:top-20">
         <nav
           className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"

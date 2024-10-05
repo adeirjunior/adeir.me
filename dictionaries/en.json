@@ -1,0 +1,46 @@
+{
+    "home": {
+        "bio": {
+            "title": "Bio",
+            "content": "Brazilian <strong>Computer Science</strong> student with years of working knowledge on programming."
+        },
+        "main_projects": {
+            "title": "Main Projects",
+            "content": "I've worked on projects to reduce social isolation and help people find nearby friends with common interests, like <a href=\"https://github.com/adeirjunior/HobbyFriends\">HobbyFriends</a>. I also developed <a href=\"https://egab.online\">E-Gab</a>, a platform to promote transparency by connecting politicians and voters."
+        },
+        "programming_languages": {
+            "title": "Main Languages",
+            "content": ""
+        },
+        "idioms": {
+            "title": "Idioms",
+            "content": "My native language is Portuguese. I&apos;m also confident in English and Spanish, and have some knowledge of Japanese, but I&apos;m not fluent in it yet."
+        },
+        "hobbies": {
+            "title": "Hobbies",
+            "content": "<li>Painting</li><li>Musical Instruments (Piano, Acoustic Guitar)</li><li>Cycling</li>"
+        }
+    },
+    "blog": {
+        "my_blog": "My Blog"
+    },
+    "projects": {
+        "my_projects": "My Projects"
+    },
+    "reading": {
+        "reading_list": {
+            "title": "Reading List",
+            "content": "<p>I do a lot of reading, and when I find books that are particularly good, I write them down so I can recommend them to others. This reading list is made up of my current favorite books and are organized by category. I consider these books “must-read” for their category as they will help you learn and grow in your career.</p><p>Note: This page contains affiliate links. If you click through and purchase a book, I may receive compensation for that purchase.</p>"
+        }
+    },
+    "links": {
+        "my_links": "My Links"
+    },
+    "nav": {
+        "home": "home",
+        "blog": "blog",
+        "projects": "projects",
+        "reading": "reading",
+        "links": "links"
+    }
+}

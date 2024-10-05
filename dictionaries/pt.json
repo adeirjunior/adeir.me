@@ -1,0 +1,45 @@
+{"home": {
+        "bio": {
+            "title": "Bio",
+            "content": "Estudante brasileiro de <strong>Ciência da Computação</strong> com anos de experiência em programação."
+        },
+        "main_projects": {
+            "title": "Projetos Principais",
+            "content": "Trabalhei em projetos para reduzir o isolamento social e ajudar as pessoas a encontrarem amigos próximos com interesses em comum, como o <a href=\"https://github.com/adeirjunior/HobbyFriends\">HobbyFriends</a>. Também desenvolvi o <a href=\"https://egab.online\">E-Gab</a>, uma plataforma para promover a transparência conectando políticos e eleitores."
+        },
+        "programming_languages": {
+            "title": "Linguagens da Programação",
+            "content": ""
+        },
+        "idioms": {
+            "title": "Idiomas",
+            "content": "Minha língua nativa é o português. Também sou confiante em inglês e espanhol, e tenho algum conhecimento de japonês, mas ainda não sou fluente."
+        },
+        "hobbies": {
+            "title": "Hobbies",
+            "content": "<li>Pintura</li><li>Instrumentos Musicais (Piano, Violão)</li><li>Ciclismo</li>"
+        }
+    },
+    "blog": {
+        "my_blog": "Meu Blog"
+    },
+    "projects": {
+        "my_projects": "Meus Projetos"
+    },
+    "reading": {
+        "reading_list": {
+            "title": "Lista de Leitura",
+            "content": "<p>Eu leio muito e, quando encontro livros particularmente bons, anoto-os para poder recomendá-los a outras pessoas. Esta lista de leitura é composta pelos meus livros favoritos atuais e é organizada por categoria. Considero esses livros \"de leitura obrigatória\" para sua categoria, pois eles ajudarão você a aprender e crescer em sua carreira.</p><p>Observação: esta página contém links de afiliados. Se você clicar e comprar um livro, posso receber uma compensação por essa compra.</p>"
+        }
+    },
+    "links": {
+        "my_links": "Meu Links"
+    },
+    "nav": {
+        "home": "início",
+        "blog": "blog",
+        "projects": "projetos",
+        "reading": "leituras",
+        "links": "links"
+    }
+}

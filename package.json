@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.5.4",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@next/mdx": "^14.2.7",
@@ -24,6 +25,7 @@
     "cssnano": "^7.0.5",
     "easymde": "^2.18.0",
     "geist": "1.2.2",
+    "negotiator": "^0.6.3",
     "next": "^14.2.7",
     "next-mdx-remote": "^4.4.1",
     "next-sanity": "^9.4.7",
@@ -38,6 +40,7 @@
     "typescript": "5.3.3"
   },
   "devDependencies": {
+    "@types/negotiator": "^0.6.3",
     "@types/react": "^18.3.5",
     "autoprefixer": "^10.4.20",
     "eslint": "8.57.0",

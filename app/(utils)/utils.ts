@@ -105,7 +105,7 @@ export function slugify(str: string) {
     .replace(/\-\-+/g, "-"); // Replace multiple - with single -
 }
 
-export function formatDate(date: string, includeRelative = false) {
+export function formatDate(date: string, includeRelative = false, lang: 'en' | 'pt') {
   let currentDate = new Date()
   if (!date.includes('T')) {
     date = `${date}T00:00:00`
@@ -128,7 +128,7 @@ export function formatDate(date: string, includeRelative = false) {
     formattedDate = 'Today'
   }
 
-  let fullDate = targetDate.toLocaleString('en-us', {
+  let fullDate = targetDate.toLocaleString(lang, {
     month: 'long',
     day: 'numeric',
     year: 'numeric',

@@ -1,4 +1,5 @@
 import { baseUrl } from "@/app/sitemap";
+import { getDictionary } from "../dictionaries";
 
 const ogImage = `${baseUrl}/og?title=${encodeURIComponent("links")}`;
 
@@ -49,10 +50,11 @@ const links = {
   },
 };
 
-export default function Page() {
+export default async function Page({ params }: { params: { lang: 'en' | 'pt' } }) {
+  const { links: l } = await getDictionary(params.lang)
   return (
     <section>
-      <h1 className="font-semibold text-2xl mb-8 tracking-tighter">My Links</h1>
+      <h1 className="font-semibold text-2xl mb-8 tracking-tighter">{l.my_links}</h1>
       <div className="prose">
         {Object.entries(links).map(([name, { href }]) => {
         return (

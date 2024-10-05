@@ -1,5 +1,6 @@
 import { baseUrl } from "@/app/sitemap";
 import Image from "next/image";
+import { getDictionary } from "../dictionaries";
 
 const ogImage = `${baseUrl}/og?title=${encodeURIComponent("reading")}`;
 
@@ -58,24 +59,15 @@ const list = {
   },
 };
 
-export default function Page() {
+export default async function Page({ params }: {params: { lang: 'en' | 'pt'}}) {
+  const {reading} = await getDictionary(params.lang)
   return (
     <section>
       <h1 className="font-semibold text-2xl mb-8 tracking-tighter">
-        Reading List
+        {reading.reading_list.title}
       </h1>
       <div className="prose">
-        <p>
-          I do a lot of reading, and when I find books that are particularly
-          good, I write them down so I can recommend them to others. This
-          reading list is made up of my current favorite books and are organized
-          by category. I consider these books “must-read” for their category as
-          they will help you learn and grow in your career.
-        </p>
-        <p>
-          Note: This page contains affiliate links. If you click through and
-          purchase a book, I may receive compensation for that purchase.
-        </p>
+        <div dangerouslySetInnerHTML={{ __html: reading.reading_list.content }}></div>
         <div>
           {Object.entries(list).map(([category, { books }]) => (
             <div key={category}>
