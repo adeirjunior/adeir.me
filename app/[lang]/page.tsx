@@ -21,9 +21,9 @@ export default async function page({ params }: { params: { lang: 'en' | 'pt' } }
             <section className="prose">
                 <h2>{home.programming_languages.title}</h2>
                 <ul>
-                    <li>Rust <span>(C++)</span></li>
-                    <li>Typescript <span>(Javascript)</span></li>
-                    <li>Kotlin <span>(Java)</span></li>
+                    <li>Rust <span className="font-bold">(C++)</span></li>
+                    <li>Typescript <span className="font-bold">(Javascript)</span></li>
+                    <li>Kotlin <span className="font-bold">(Java)</span></li>
                 </ul>
             </section>
 
