@@ -2,19 +2,19 @@
     "home": {
         "bio": {
             "title": "Bio",
-            "content": "Brazilian <strong>Computer Science</strong> student with a strong foundation in programming and years of practical experience. My work revolves around creating impactful solutions to improve daily lives and foster connections between people."
+            "content": "Brazilian <strong>Computer Science</strong> student with years of working knowledge on programming."
         },
         "main_projects": {
             "title": "Main Projects",
-            "content": "I have spearheaded innovative projects like <a href=\"https://github.com/adeirjunior/HobbyFriends\">HobbyFriends</a>, a platform designed to reduce social isolation by connecting individuals with shared interests. This initiative helps people build meaningful relationships within their local communities. Another significant achievement is <a href=\"https://egab.online\">E-Gab</a>, a transparency-driven platform that bridges the gap between politicians and voters, encouraging accountability and better communication in the political sphere."
+            "content": "I've worked on projects to reduce social isolation and help people find nearby friends with common interests, like <a href=\"https://github.com/adeirjunior/HobbyFriends\">HobbyFriends</a>. I also developed <a href=\"https://egab.online\">E-Gab</a>, a platform to promote transparency by connecting politicians and voters."
         },
         "programming_languages": {
-            "title": "Programming Languages",
+            "title": "Main Languages",
             "content": ""
         },
         "idioms": {
             "title": "Idioms",
-            "content": "Portuguese is my native language. I&apos;m also confident in English and Spanish, and have some knowledge of Japanese, which I&apos;m still refining."
+            "content": "My native language is Portuguese. I&apos;m also confident in English and Spanish, and have some knowledge of Japanese, but I&apos;m not fluent in it yet."
         },
         "hobbies": {
             "title": "Hobbies",
