@@ -102,12 +102,21 @@ const loadGithubRepositories: () => Promise<GithubRepository[]> = async () => {
       (repo: any) => repo.name !== "adeirjunior" && repo.name !== ".github"
     );
 
-    const repositoriesWithDetails: GithubRepository[] = await Promise.all(
+    const allReposWithVars = await Promise.all(
       filteredRepositories.map(async (repo: any) => {
-        const [readmeContent, languagesResponse, siteVisibleVar] = await Promise.all([
+        const siteVisibleVar = await fetchRepositoryVariable(repo.name, 'site_visible');
+        return { repo, siteVisibleVar };
+      })
+    );
+
+    // Filter only those that have the site_visible variable as "true"
+    const visibleRepos = allReposWithVars.filter(({ siteVisibleVar }) => siteVisibleVar === "true");
+
+    const repositoriesWithDetails: GithubRepository[] = await Promise.all(
+      visibleRepos.map(async ({ repo }) => {
+        const [readmeContent, languagesResponse] = await Promise.all([
           fetchRepositoryReadme(repo.name),
           fetchRepositoryLanguages(repo.name),
-          fetchRepositoryVariable(repo.name, 'site_visible')
         ]);
 
         return {
@@ -121,7 +130,7 @@ const loadGithubRepositories: () => Promise<GithubRepository[]> = async () => {
           repository: repo.svn_url,
           createdAt: repo.created_at,
           updatedAt: repo.pushed_at,
-          siteVisible: siteVisibleVar === "true",
+          isPrivate: repo.private === true,
         };
       })
     );
@@ -138,11 +147,16 @@ export const loadGithubRepository: (
 ) => Promise<GithubRepository> = async (repositoryName) => {
   try {
     const repo = await fetchRepository(repositoryName);
+    const siteVisibleVar = await fetchRepositoryVariable(repo.name, 'site_visible');
 
-    const [readmeContent, languagesResponse, siteVisibleVar] = await Promise.all([
+    // If site_visible is not true, we shouldn't even allow accessing the page
+    if (siteVisibleVar !== "true") {
+      throw new Error("Repository not allowed for site visibility");
+    }
+
+    const [readmeContent, languagesResponse] = await Promise.all([
       fetchRepositoryReadme(repo.name),
       fetchRepositoryLanguages(repo.name),
-      fetchRepositoryVariable(repo.name, 'site_visible')
     ]);
 
     const repositoryWithDetails: GithubRepository = {
@@ -156,7 +170,7 @@ export const loadGithubRepository: (
       repository: repo.svn_url,
       createdAt: repo.created_at,
       updatedAt: repo.pushed_at,
-      siteVisible: siteVisibleVar === "true",
+      isPrivate: repo.private === true,
     };
 
     return repositoryWithDetails;

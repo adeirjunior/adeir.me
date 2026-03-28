@@ -27,46 +27,52 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props) {
-  const repository = await loadGithubRepository(params.slug);
-  if (!repository) {
+  try {
+    const repository = await loadGithubRepository(params.slug);
+    if (!repository) {
+      return;
+    }
+
+    const { name: title, description } = repository;
+    const ogImage = `${baseUrl}/og?title=${encodeURIComponent(title)}`;
+
+    return {
+      title,
+      description,
+      openGraph: {
+        title,
+        description,
+        type: "article",
+        url: `${baseUrl}/projects/${title}`,
+        images: [
+          {
+            url: ogImage,
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: [ogImage],
+      },
+    };
+  } catch (e) {
     return;
   }
-
-  const { name: title, description } = repository;
-  const ogImage = `${baseUrl}/og?title=${encodeURIComponent(title)}`;
-
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      type: "article",
-      url: `${baseUrl}/projects/${title}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
-  };
 }
 
 async function page({ params }: Props) {
-  const repository = await loadGithubRepository(params.slug);
-  const { projects: p } = await getDictionary(params.lang);
-
-  if (!repository) {
+  let repository: GithubRepository;
+  try {
+    repository = await loadGithubRepository(params.slug);
+  } catch (e) {
     notFound();
   }
 
-  const { name, description, readme, url, siteVisible } = repository;
+  const { projects: p } = await getDictionary(params.lang);
+
+  const { name, description, readme, url, isPrivate } = repository;
 
   return (
     <section>
@@ -93,7 +99,7 @@ async function page({ params }: Props) {
           <h1 className="font-semibold text-2xl tracking-tighter">
             {params.slug}
           </h1>
-          {!siteVisible && (
+          {isPrivate && (
             <span className="bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">
               {p.private}
             </span>
@@ -109,7 +115,7 @@ async function page({ params }: Props) {
         </a>
       </div>
 
-      {!siteVisible ? (
+      {isPrivate ? (
         <div className="bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/20 p-4 rounded-lg">
           <p className="text-red-700 dark:text-red-400 text-sm">
             {p.private_alert}

@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: Lang }) {
                   <p className="text-neutral-900 dark:text-neutral-100 tracking-tight font-medium text-lg group-hover:underline">
                     {project.name} {project.name === 'adeir.me' && <span className="text-neutral-500 text-sm font-normal">(this site)</span>}
                   </p>
-                  {!project.siteVisible && (
+                  {project.isPrivate && (
                     <span className="bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">
                       {p.private}
                     </span>

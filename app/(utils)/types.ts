@@ -9,7 +9,7 @@ export type GithubRepository = {
   repository: string;
   createdAt: string;
   updatedAt: string;
-  siteVisible: boolean;
+  isPrivate: boolean;
 };
 
 export type Post = {
