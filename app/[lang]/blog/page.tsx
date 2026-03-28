@@ -6,6 +6,8 @@ export const metadata = {
   description: 'Read my blog.',
 }
 
+export const revalidate = 60;
+
 export default async function page({ params }: { params: { lang: 'en' | 'pt' } }) {
   const { blog } = await getDictionary(params.lang)
 

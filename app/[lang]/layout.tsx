@@ -7,6 +7,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from '../(components)/footer'
 import { baseUrl } from '../sitemap'
+import { Lang } from '../(utils)/types'
 
 export async function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'pt' }]
@@ -49,7 +50,7 @@ export default function RootLayout({
   params
 }: {
   children: React.ReactNode,
-  params: { lang: 'en' | 'pt'}
+  params: Lang
 }) {
   return (
     <html

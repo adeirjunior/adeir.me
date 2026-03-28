@@ -1,11 +1,12 @@
-{"home": {
+{
+    "home": {
         "bio": {
             "title": "Bio",
-            "content": "Estudante brasileiro de <strong>Ciência da Computação</strong> com anos de experiência em programação."
+            "content": "Desenvolvedor Fullstack com anos de experiência em programação. Sou capaz de entregar projetos completos, desde o design da interface do usuário até a implementação. Tenho um forte compromisso com a qualidade do código e a satisfação do cliente. <br/><br/>Minha paixão por programação começou quando eu era criança, e desde então me dedico a aprimorar minhas habilidades e conhecimentos."
         },
         "main_projects": {
             "title": "Projetos Principais",
-            "content": "Além de sites mais simples como <a href=\"/\">este próprio</a>, trabalhei em projetos para reduzir o isolamento social e ajudar pessoas a encontrar grupos com interesses em comum, como o <a href=\"https://github.com/adeirjunior/HobbyFriends\">\"HobbyFriends\"</a>. Também desenvolvi o <a href=\"https://egab.online\">\"E-Gab\"</a>, uma plataforma que auxilia políticos a realizarem o marketing de suas campanhas, a ouvirem os problemas da população e a produzirem seus trabalhos políticos com maior agilidade."
+            "content": "Além de sites mais simples, como <a href=\"/\" style=\"font-weight: 800;\">este portfólio</a> (https://adeir.me), já desenvolvi sistemas voltados à gestão de processos empresariais, ajudando empresas a organizarem e automatizarem suas operações. Entre os segmentos atendidos, estão empresas de despachante, imobiliárias, assessorias em segurança do trabalho e mercados locais.<br/><br/>Também atuei no desenvolvimento de soluções para órgãos públicos, incluindo desde <a href=\"https://saomiguel.ro.gov.br\" style=\"font-weight: 800;\">sites institucionais de prefeituras</a> até aplicações para gerenciamento e identificação de postes de iluminação pública."
         },
         "programming_languages": {
             "title": "Linguagens da Programação",
@@ -13,11 +14,11 @@
         },
         "idioms": {
             "title": "Idiomas",
-            "content": "Minha língua nativa é o português. Também sou confiante em inglês e espanhol, e tenho algum conhecimento de japonês, mas ainda não sou fluente."
+            "content": "Sou confiante em inglês e espanhol, e tenho algum conhecimento de japonês, mas ainda não sou fluente."
         },
         "hobbies": {
-            "title": "Hobbies",
-            "content": "<li>Pintura</li><li>Instrumentos Musicais (Piano, Violão)</li><li>Ciclismo</li>"
+            "title": "",
+            "content": ""
         }
     },
     "blog": {

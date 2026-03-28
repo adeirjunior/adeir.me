@@ -1,5 +1,7 @@
 import { baseUrl } from "@/app/sitemap";
 import { getDictionary } from "../dictionaries";
+import { getLinks } from "app/(utils)/utils";
+import { Lang } from "@/app/(utils)/types";
 
 const ogImage = `${baseUrl}/og?title=${encodeURIComponent("links")}`;
 
@@ -17,54 +19,26 @@ export const metadata = {
   },
 };
 
-const links = {
-  x: {
-    href: "https://x.com/adeirju",
-  },
-  github: {
-    href: "https://github.com/adeirjunior",
-  },
-  linkedin: {
-    href: "https://linkedin.com/in/adeirjunior",
-  },
-  youtube: {
-    href: "https://youtube.com/@adeirjunior",
-  },
-  tiktok: {
-    href: "https://tiktok.com/@adeirj",
-  },
-  twitch: {
-    href: "https://twitch.tv/adeirju",
-  },
-  medium: {
-    href: "https://adeir.medium.com",
-  },
-  hashnode: {
-    href: "https://adeir.hashnode.dev",
-  },
-  devto: {
-    href: "https://dev.to/adeir",
-  },
-  gumroad: {
-    href: "https://adeir.gumroad.com/",
-  },
-};
+export const revalidate = 60;
 
-export default async function Page({ params }: { params: { lang: 'en' | 'pt' } }) {
+export default async function Page({ params }: { params: Lang }) {
   const { links: l } = await getDictionary(params.lang)
+  const links = await getLinks();
+
   return (
     <section>
       <h1 className="font-semibold text-2xl mb-8 tracking-tighter">{l.my_links}</h1>
       <div className="prose">
-        {Object.entries(links).map(([name, { href }]) => {
+        {links.map((link) => {
         return (
           <a
-            key={name}
-            href={href}
+            key={link.title}
+            href={link.url}
             className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
-            target={name}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            {name}
+            {link.title}
           </a>
         );
       })}

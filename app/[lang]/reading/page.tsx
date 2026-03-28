@@ -1,6 +1,8 @@
 import { baseUrl } from "@/app/sitemap";
 import Image from "next/image";
 import { getDictionary } from "../dictionaries";
+import { Book, Lang } from "@/app/(utils)/types";
+import { getBooks } from "app/(utils)/utils";
 
 const ogImage = `${baseUrl}/og?title=${encodeURIComponent("reading")}`;
 
@@ -9,8 +11,8 @@ export const metadata = {
   description: "See my reading list.",
   openGraph: {
     title: "My Reading List",
-    description: "This is the place for my reading recommendations.",
-    url: baseUrl,
+    description: "This is the place for my recommendations.",
+    url: `${baseUrl}/reading`,
     siteName: "adeir.me",
     locale: "en_US",
     type: "website",
@@ -18,49 +20,21 @@ export const metadata = {
   },
 };
 
-const list = {
-  Programming: {
-    books: [
-      {
-        name: "WebAssembly: The Definitive Guide",
-        href: "https://amzn.to/3APUfQK",
-        image: "https://m.media-amazon.com/images/I/91vhWTofMdL._SL1500_.jpg",
-      },
-    ],
-  },
-  Classical: {
-    books: [
-      {
-        name: "Crime and Punishment",
-        href: "https://amzn.to/4dMzDHw",
-        image: "https://m.media-amazon.com/images/I/71hjHuIcflL._SL1500_.jpg",
-      },
-      {
-        name: "The Art of War",
-        href: "https://amzn.to/3XJqCcV",
-        image: "https://m.media-amazon.com/images/I/71xJdnydklL._SL1000_.jpg",
-      },
-      {
-        name: "The Iliad & the Odyssey",
-        href: "https://amzn.to/4ebhfYG",
-        image: "https://m.media-amazon.com/images/I/810rw5b5WxL._SL1500_.jpg",
-      },
-      {
-        name: "Animal Farm",
-        href: "https://amzn.to/4cRm9sV",
-        image: "https://m.media-amazon.com/images/I/71je3-DsQEL._SL1500_.jpg",
-      },
-      {
-        name: "1984",
-        href: "https://amzn.to/4cUzfWk",
-        image: "https://m.media-amazon.com/images/I/71rpa1-kyvL._SL1500_.jpg",
-      },
-    ],
-  },
-};
+export const revalidate = 60;
 
-export default async function Page({ params }: {params: { lang: 'en' | 'pt'}}) {
+export default async function Page({ params }: {params: Lang}) {
   const {reading} = await getDictionary(params.lang)
+  const books = await getBooks();
+
+  const booksByCategory = books.reduce((acc, book) => {
+    const category = book.category || 'Other';
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(book);
+    return acc;
+  }, {} as Record<string, Book[]>);
+
   return (
     <section>
       <h1 className="font-semibold text-2xl mb-8 tracking-tighter">
@@ -69,23 +43,25 @@ export default async function Page({ params }: {params: { lang: 'en' | 'pt'}}) {
       <div className="prose">
         <div dangerouslySetInnerHTML={{ __html: reading.reading_list.content }}></div>
         <div>
-          {Object.entries(list).map(([category, { books }]) => (
+          {Object.entries(booksByCategory).map(([category, books]) => (
             <div key={category}>
               <h2>{category}</h2>
-              <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                 {books.map((book, index) => (
-                  <li key={index}>
-                    <a target="_blank" href={book.href}>
-                      <div>
+                  <li key={index} className="flex flex-col">
+                    <a target="_blank" href={book.href} rel="noopener noreferrer" className="group">
+                      <div className="relative aspect-[2/3] w-full overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-800 shadow-md group-hover:shadow-xl transition-all duration-300">
                         <Image
-                          width={200}
-                          height={500}
+                          fill
                           src={book.image}
                           alt={book.name}
+                          className="object-cover"
+                          sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
                         />
-
-                        <p>{book.name}</p>
                       </div>
+                      <p className="mt-2 text-sm font-medium leading-tight text-neutral-900 dark:text-neutral-100 group-hover:underline">
+                        {book.name}
+                      </p>
                     </a>
                   </li>
                 ))}

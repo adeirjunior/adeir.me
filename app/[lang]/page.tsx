@@ -1,7 +1,8 @@
+import { Lang } from "../(utils)/types";
 import { getDictionary } from "./dictionaries";
 
-export default async function page({ params }: { params: { lang: 'en' | 'pt' } }) {
-    const {home} = await getDictionary(params.lang)
+export default async function page({ params }: { params: Lang }) {
+    const { home } = await getDictionary(params.lang)
     return (
         <article>
             <h1 className="font-semibold text-2xl mb-8 tracking-tighter">Adeir Junior</h1>
@@ -21,9 +22,10 @@ export default async function page({ params }: { params: { lang: 'en' | 'pt' } }
             <section className="prose">
                 <h2>{home.programming_languages.title}</h2>
                 <ul>
-                    <li>Rust <span className="font-bold">(C++)</span></li>
+                    <li>Rust</li>
                     <li>Typescript <span className="font-bold">(Javascript)</span></li>
                     <li>Kotlin <span className="font-bold">(Java)</span></li>
+                    <li>PHP</li>
                     <li>Python</li>
                 </ul>
             </section>
@@ -34,11 +36,16 @@ export default async function page({ params }: { params: { lang: 'en' | 'pt' } }
                 </p>
             </section>
 
-            <section className="prose">
-                <h2>{home.hobbies.title}</h2>
-                <ul dangerouslySetInnerHTML={{ __html: home.hobbies.content }}>
-                </ul>
-            </section>
+            {
+                home.hobbies && (
+                    <section className="prose">
+                        <h2>{home.hobbies.title}</h2>
+                        <ul dangerouslySetInnerHTML={{ __html: home.hobbies.content }}>
+                        </ul>
+                    </section>
+                )
+            }
+
         </article>
     );
 };

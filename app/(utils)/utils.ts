@@ -2,7 +2,15 @@ import fs, { PathLike, PathOrFileDescriptor } from 'fs'
 import { groq } from 'next-sanity'
 import path from 'path'
 import { client } from '@/sanity/lib/client'
-import { Post } from './types'
+import { Book, Link, Post } from './types'
+
+export async function getLinks(): Promise<Link[]> {
+  return await client.fetch(groq`*[_type == 'link'] | order(order asc)`, {}, { next: { revalidate: 60 } });
+}
+
+export async function getBooks(): Promise<Book[]> {
+  return await client.fetch(groq`*[_type == 'book']`, {}, { next: { revalidate: 60 } });
+}
 
 type Metadata = {
   title: string
@@ -91,7 +99,11 @@ export const generateRandomGradient = (): string => {
 };
 
 export async function getBlogPosts(): Promise<Post[]> {
-  return await client.fetch(groq`*[_type == 'post'] `);
+  return await client.fetch(groq`*[_type == 'post'] `, {}, { next: { revalidate: 60 } });
+}
+
+export async function getBlogPostBySlug(slug: string): Promise<Post | null> {
+  return await client.fetch(groq`*[_type == 'post' && slug.current == $slug][0]`, { slug }, { next: { revalidate: 60 } });
 }
 
 export function slugify(str: string) {

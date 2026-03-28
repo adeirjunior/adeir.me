@@ -100,6 +100,8 @@ const loadGithubRepositories: () => Promise<GithubRepository[]> = async () => {
           languages: languagesResponse,
           readme: readmeContent,
           repository: repo.svn_url,
+          createdAt: repo.created_at,
+          updatedAt: repo.pushed_at,
         };
       })
     );
@@ -129,6 +131,8 @@ export const loadGithubRepository: (
       languages: languagesResponse!,
       readme: readmeContent!,
       repository: repo.svn_url,
+      createdAt: repo.created_at,
+      updatedAt: repo.pushed_at,
     };
 
     return repositoryWithReadme;
