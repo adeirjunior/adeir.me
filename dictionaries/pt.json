@@ -25,7 +25,8 @@
         "my_blog": "Meu Blog"
     },
     "projects": {
-        "my_projects": "Meus Projetos"
+        "my_projects": "Meus Projetos",
+        "no_readme": "Este projeto ainda não possui uma descrição detalhada (README.md) disponível no repositório do GitHub."
     },
     "reading": {
         "reading_list": {

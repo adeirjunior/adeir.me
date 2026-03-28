@@ -9,6 +9,8 @@ export const metadata = {
   description: "See my projects.",
 };
 
+export const revalidate = 3600;
+
 export default async function Page({ params }: { params: Lang }) {
   const projects: GithubRepository[] = await loadGithubRepositories();
   const { projects: p } = await getDictionary(params.lang)
