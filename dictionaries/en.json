@@ -26,7 +26,9 @@
     },
     "projects": {
         "my_projects": "My Projects",
-        "no_readme": "This project doesn't have a detailed description (README.md) available in its GitHub repository yet."
+        "no_readme": "This project doesn't have a detailed description (README.md) available in its GitHub repository yet.",
+        "private": "Private",
+        "private_alert": "This repository is private. Access to source code and detailed documentation is restricted."
     },
     "reading": {
         "reading_list": {

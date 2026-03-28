@@ -9,6 +9,7 @@ export type GithubRepository = {
   repository: string;
   createdAt: string;
   updatedAt: string;
+  siteVisible: boolean;
 };
 
 export type Post = {

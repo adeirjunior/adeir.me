@@ -45,21 +45,17 @@ export const fetchRepositoryReadme = async (
       }
     );
 
-    // Decode the base64 content
     const content = Buffer.from(response.data.content, "base64").toString(
       "utf-8"
     );
 
-    // Return the content as markdown
     return content;
   } catch (error) {
-    console.error(error);
     return null;
   }
 };
 
 const fetchRepositoryLanguages = async (repo: string) => {
-  
   try {
     const response = await octokit.request(
       `GET /repos/{owner}/{repo}/languages`,
@@ -78,35 +74,59 @@ const fetchRepositoryLanguages = async (repo: string) => {
   }
 };
 
+const fetchRepositoryVariable = async (repo: string, variableName: string): Promise<string | null> => {
+  try {
+    const response = await octokit.request(
+      `GET /repos/{owner}/{repo}/actions/variables/{variable_name}`,
+      {
+        owner,
+        repo,
+        variable_name: variableName,
+        headers: {
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+      }
+    );
+
+    return response.data.value;
+  } catch (error) {
+    return null;
+  }
+};
+
 const loadGithubRepositories: () => Promise<GithubRepository[]> = async () => {
   try {
     const repositories = await fetchRepositories();
 
-    // Filter out the repository with the name 'adeirjunior'
     const filteredRepositories = repositories.filter(
       (repo: any) => repo.name !== "adeirjunior" && repo.name !== ".github"
     );
 
-    const repositoriesWithReadme: GithubRepository[] = await Promise.all(
+    const repositoriesWithDetails: GithubRepository[] = await Promise.all(
       filteredRepositories.map(async (repo: any) => {
-        const readmeContent = await fetchRepositoryReadme(repo.name); // Passando o nome do repositório
-        const languagesResponse = await fetchRepositoryLanguages(repo.name); // Passando o nome do repositório
+        const [readmeContent, languagesResponse, siteVisibleVar] = await Promise.all([
+          fetchRepositoryReadme(repo.name),
+          fetchRepositoryLanguages(repo.name),
+          fetchRepositoryVariable(repo.name, 'site_visible')
+        ]);
+
         return {
           name: repo.name,
           url: repo.html_url,
           homepage: repo.homepage,
           description: repo.description,
           mainLanguage: repo.language,
-          languages: languagesResponse,
-          readme: readmeContent,
+          languages: languagesResponse || [],
+          readme: readmeContent || "",
           repository: repo.svn_url,
           createdAt: repo.created_at,
           updatedAt: repo.pushed_at,
+          siteVisible: siteVisibleVar === "true",
         };
       })
     );
 
-    return repositoriesWithReadme;
+    return repositoriesWithDetails;
   } catch (error) {
     console.error(error);
     return [];
@@ -119,28 +139,31 @@ export const loadGithubRepository: (
   try {
     const repo = await fetchRepository(repositoryName);
 
-    const readmeContent = await fetchRepositoryReadme(repo.name); // Corrigido para usar repo.name
-    const languagesResponse = await fetchRepositoryLanguages(repo.name); // Corrigido para usar repo.name
+    const [readmeContent, languagesResponse, siteVisibleVar] = await Promise.all([
+      fetchRepositoryReadme(repo.name),
+      fetchRepositoryLanguages(repo.name),
+      fetchRepositoryVariable(repo.name, 'site_visible')
+    ]);
 
-    const repositoryWithReadme: GithubRepository = {
+    const repositoryWithDetails: GithubRepository = {
       name: repo.name,
       url: repo.html_url,
       homepage: repo.homepage,
       description: repo.description,
       mainLanguage: repo.language,
-      languages: languagesResponse!,
-      readme: readmeContent!,
+      languages: languagesResponse || [],
+      readme: readmeContent || "",
       repository: repo.svn_url,
       createdAt: repo.created_at,
       updatedAt: repo.pushed_at,
+      siteVisible: siteVisibleVar === "true",
     };
 
-    return repositoryWithReadme;
+    return repositoryWithDetails;
   } catch (error) {
     console.error(error);
-    throw error; // Melhor lançar o erro para que o chamador possa tratá-lo
+    throw error;
   }
 };
-
 
 export default loadGithubRepositories;

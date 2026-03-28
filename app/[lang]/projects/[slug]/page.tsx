@@ -66,7 +66,7 @@ async function page({ params }: Props) {
     notFound();
   }
 
-  const { name, description, readme, url } = repository;
+  const { name, description, readme, url, siteVisible } = repository;
 
   return (
     <section>
@@ -89,9 +89,16 @@ async function page({ params }: Props) {
         }}
       />
       <div className="flex justify-between items-center mb-8">
-        <h1 className="font-semibold text-2xl tracking-tighter">
-          {params.slug}
-        </h1>
+        <div className="flex items-center gap-3">
+          <h1 className="font-semibold text-2xl tracking-tighter">
+            {params.slug}
+          </h1>
+          {!siteVisible && (
+            <span className="bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">
+              {p.private}
+            </span>
+          )}
+        </div>
         <a 
           target="_blank" 
           href={url}
@@ -102,7 +109,13 @@ async function page({ params }: Props) {
         </a>
       </div>
 
-      {readme ? (
+      {!siteVisible ? (
+        <div className="bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/20 p-4 rounded-lg">
+          <p className="text-red-700 dark:text-red-400 text-sm">
+            {p.private_alert}
+          </p>
+        </div>
+      ) : readme ? (
         <article className="prose">
           <CustomMDX source={sanitizeMDXContent(readme)} />
         </article>
